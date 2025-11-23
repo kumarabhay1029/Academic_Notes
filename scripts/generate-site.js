@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
-const mammoth = require('mammoth');
 
 // Create dist directory
 const distDir = path.join(__dirname, '../dist');
@@ -75,6 +74,36 @@ markdownFiles.forEach(file => {
     <title>${title} - Student Initiative Group Notes Hub</title>
     <link rel="stylesheet" href="../note-style.css">
 </head>
+
+let errorFiles = [];
+markdownFiles.forEach(file => {
+    try {
+        const filePath = path.join(__dirname, '..', file);
+        const content = fs.readFileSync(filePath, 'utf-8');
+
+        // Extract title from filename
+        const filename = path.basename(file, '.md');
+        const parts = filename.split('_');
+
+        // Try to extract subject code and title
+        let subject = parts[0].toUpperCase();
+        let title = parts.slice(1).join(' ').replace(/-/g, ' ');
+
+        // If title is empty, use filename
+        if (!title) {
+            title = filename.replace(/-/g, ' ').replace(/,/g, ' ');
+        } else {
+            title = title.replace(/,/g, ' ');
+        }
+
+        // Clean up extra spaces
+        title = title.replace(/\s+/g, ' ').trim();
+
+        // Generate HTML content
+        const htmlContent = marked(content);
+
+        // Create HTML page for the note
+        const noteHtml = `<!DOCTYPE html>
 <body>
     <header>
         <div class="container">
@@ -100,6 +129,33 @@ markdownFiles.forEach(file => {
     
     // Create a short description (first 150 chars of content)
     const plainText = content.replace(/[#*`\[\]]/g, '').substring(0, 150);
+
+        // Save the HTML file
+        const htmlFileName = filename + '.html';
+        fs.writeFileSync(path.join(notesDir, htmlFileName), noteHtml);
+
+        // Create a short description (first 150 chars of content)
+        const plainText = content.replace(/[#*`\[\]]/g, '').substring(0, 150);
+        const description = plainText.trim() + '...';
+
+        // Add to note cards
+        noteCards.push({
+            subject: subject,
+            title: title,
+            description: description,
+            link: `notes/${htmlFileName}`,
+            file: filename
+        });
+    } catch (error) {
+        errorFiles.push(file);
+        console.error(`Error processing file ${file}:`, error.message);
+    }
+});
+
+if (errorFiles.length > 0) {
+    console.log('The following files could not be processed and were skipped:');
+    errorFiles.forEach(f => console.log(' - ' + f));
+}
     const description = plainText.trim() + '...';
     
     // Add to note cards

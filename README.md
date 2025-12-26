@@ -3,7 +3,7 @@
 This repository contains comprehensive study notes for IGNOU courses, automatically published to GitHub Pages.
 
 ## 🌟 Live Site
-Visit: `https://kumarabhay1029.github.io/IGN_OL_CLASSNOTES/`
+Visit: `https://kumarabhay1029.github.io/Academic_Notes/`
 
 ## 🚀 Features
 - **Multiple Format Support**: Upload Markdown (.md), PDF (.pdf), or Word (.docx/.doc) files

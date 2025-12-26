@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>to cpp - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>to cpp</h1><p class="subject-tag">INTRODUCTION</p></div></header><main class="container"><article class="note-content"><h1>🌟 Introduction to C++</h1>
+<h2>😃 Overview</h2>
+<p>C++ is a <strong>high-level, general-purpose programming language</strong> developed by <strong>Bjarne Stroustrup</strong> at Bell Labs in 1979. It is an <strong>extension of the C programming language</strong>, adding features that support <strong>object-oriented programming (OOP)</strong>, <strong>generic programming</strong>, and <strong>low-level memory manipulation</strong>.</p>
+<p>C++ is widely used in developing:</p>
+<ul>
+<li>🖥️ Operating Systems (Windows, macOS parts)</li>
+<li>🎮 Games and graphics engines</li>
+<li>💾 Database systems</li>
+<li>🚀 High-performance applications</li>
+</ul>
+<p>📘 <strong>Official site for C++ standardization:</strong> <a href="https://isocpp.org/">https://isocpp.org/</a></p>
+<hr>
+<h2>🧠 What is C++?</h2>
+<p>C++ is both a <strong>compiled</strong> and <strong>strongly typed</strong> language. It allows developers to write <strong>efficient</strong> and <strong>fast</strong> code while still supporting <strong>object-oriented concepts</strong> such as classes and inheritance.</p>
+<h3>Key Points:</h3>
+<ul>
+<li>C++ = C + OOP + additional libraries</li>
+<li>It is <strong>platform-independent</strong> (can run on any OS)</li>
+<li>Used in <strong>competitive programming</strong>, <strong>software development</strong>, and <strong>embedded systems</strong></li>
+</ul>
+<p>🖼️ <strong>Reference Diagram:</strong> <a href="https://www.geeksforgeeks.org/introduction-to-c-plus-plus/">C++ Overview Image (GeeksforGeeks)</a></p>
+<hr>
+<h2>💡 Programming and Program</h2>
+<p>A <strong>program</strong> is a set of <strong>instructions</strong> given to a computer to perform a specific task.<br><strong>Programming</strong> is the process of designing and writing these instructions using a language that computers can understand.</p>
+<h3>💻 Example — A Simple C++ Program</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; &quot;Hello, World!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<p>✅ <strong>Explanation:</strong></p>
+<ul>
+<li><code>#include &lt;iostream&gt;</code> → Includes input-output stream library.</li>
+<li><code>int main()</code> → The entry point of every C++ program.</li>
+<li><code>cout</code> → Prints text on the screen.</li>
+<li><code>return 0;</code> → Ends the program successfully.</li>
+</ul>
+<p>🖼️ <strong>Program Flow Diagram:</strong> <a href="https://upload.wikimedia.org/wikipedia/commons/4/4e/Program_flowchart_example.png">https://upload.wikimedia.org/wikipedia/commons/4/4e/Program_flowchart_example.png</a></p>
+<hr>
+<h2>🏗️ Programming Languages</h2>
+<p>Programming languages are the tools that help us communicate with computers.</p>
+<h3>Types of Programming Languages:</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🧮 Low-level</td>
+<td>Close to machine code, hard for humans</td>
+<td>Assembly, Machine code</td>
+</tr>
+<tr>
+<td>💬 High-level</td>
+<td>Easier to understand, close to English</td>
+<td>C++, Java, Python</td>
+</tr>
+<tr>
+<td>🔀 Middle-level</td>
+<td>Combines low + high-level control</td>
+<td>C, C++</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔧 Structured Programming Paradigm</h2>
+<p>Structured programming is based on <strong>functions, loops, and conditionals</strong>. It focuses on dividing a program into <strong>small, manageable blocks</strong>.</p>
+<h3>✨ Features:</h3>
+<ul>
+<li>Uses <strong>functions</strong> to organize code</li>
+<li>Flow control using <code>if</code>, <code>for</code>, <code>while</code></li>
+<li>Focus on <strong>logic</strong> and <strong>control flow</strong></li>
+</ul>
+<p>📘 <strong>Example:</strong></p>
+<pre><code class="language-cpp">int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    cout &lt;&lt; add(5, 3);
+}
+</code></pre>
+<p>🖼️ <strong>Structured Flow Example:</strong> <a href="https://static.javatpoint.com/cpp/images/structured-programming-in-cpp.png">https://static.javatpoint.com/cpp/images/structured-programming-in-cpp.png</a></p>
+<hr>
+<h2>🧩 Object-Oriented Programming (OOP) Paradigm</h2>
+<p>OOP organizes code around <strong>objects</strong> — data and functions combined.</p>
+<h3>⚙️ Core Principles (Pillars of OOP):</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Encapsulation</strong></td>
+<td>Wrapping data and methods in one unit (class)</td>
+</tr>
+<tr>
+<td><strong>Abstraction</strong></td>
+<td>Hiding complexity from the user</td>
+</tr>
+<tr>
+<td><strong>Inheritance</strong></td>
+<td>Deriving new classes from existing ones</td>
+</tr>
+<tr>
+<td><strong>Polymorphism</strong></td>
+<td>Using one function in different forms</td>
+</tr>
+</tbody></table>
+<p>📘 <strong>Example:</strong></p>
+<pre><code class="language-cpp">class Car {
+public:
+    string brand;
+    void honk() {
+        cout &lt;&lt; &quot;Beep! Beep!&quot;;
+    }
+};
+
+int main() {
+    Car myCar;
+    myCar.brand = &quot;Tesla&quot;;
+    myCar.honk();
+}
+</code></pre>
+<p>🖼️ <strong>OOP Diagram:</strong> <a href="https://static.javatpoint.com/cpp/images/oops-concept-in-cpp.png">https://static.javatpoint.com/cpp/images/oops-concept-in-cpp.png</a></p>
+<hr>
+<h2>⚖️ Structured vs OOP</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Structured Programming</th>
+<th>OOP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Focus</td>
+<td>Functions</td>
+<td>Objects</td>
+</tr>
+<tr>
+<td>Data Security</td>
+<td>Low</td>
+<td>High (Encapsulation)</td>
+</tr>
+<tr>
+<td>Reusability</td>
+<td>Limited</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>C</td>
+<td>C++</td>
+</tr>
+</tbody></table>
+<p>🖼️ <strong>Comparison Chart:</strong> <a href="https://i.ytimg.com/vi/7c0G2b7aP9I/maxresdefault.jpg">https://i.ytimg.com/vi/7c0G2b7aP9I/maxresdefault.jpg</a></p>
+<hr>
+<h2>🌈 Benefits of OOP</h2>
+<ul>
+<li>🔄 <strong>Reusability:</strong> Write once, use many times</li>
+<li>🔒 <strong>Security:</strong> Data hiding via encapsulation</li>
+<li>🧱 <strong>Modularity:</strong> Easy to manage large programs</li>
+<li>⚙️ <strong>Extensibility:</strong> Add new features without breaking code</li>
+<li>🧠 <strong>Easy Maintenance:</strong> Bugs are easier to locate and fix</li>
+</ul>
+<p>🖼️ <strong>Reference:</strong> <a href="https://www.guru99.com/object-oriented-programming.html">https://www.guru99.com/object-oriented-programming.html</a></p>
+<hr>
+<h2>🧩 Practice Questions</h2>
+<h3>🧠 Short Answer</h3>
+<ol>
+<li>What is C++ and who developed it?</li>
+<li>Define a program and programming.</li>
+<li>Explain the difference between structured and object-oriented programming.</li>
+<li>List any three benefits of OOP.</li>
+</ol>
+<h3>💭 Descriptive</h3>
+<ol>
+<li>Explain the main features that make C++ a hybrid language.</li>
+<li>Compare structured programming and OOP with examples.</li>
+<li>Discuss the role of encapsulation and inheritance in C++.</li>
+</ol>
+<h3>🧮 MCQs</h3>
+<ol>
+<li><p>Who developed C++?</p>
+<ul>
+<li>A) Dennis Ritchie  </li>
+<li>B) Bjarne Stroustrup ✅  </li>
+<li>C) James Gosling  </li>
+<li>D) Guido van Rossum</li>
+</ul>
+</li>
+<li><p>Which of the following is <strong>not</strong> an OOP concept?  </p>
+<ul>
+<li>A) Encapsulation  </li>
+<li>B) Inheritance  </li>
+<li>C) Polymorphism  </li>
+<li>D) Compilation ✅</li>
+</ul>
+</li>
+<li><p>C++ was developed in which year?  </p>
+<ul>
+<li>A) 1972  </li>
+<li>B) 1979 ✅  </li>
+<li>C) 1983  </li>
+<li>D) 1990</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>🌟 <strong>End of File — Next Topic:</strong> Programming and Program → Programming Language → Structured &amp; OOP Paradigm → OOP Concepts → Benefits of OOP</p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

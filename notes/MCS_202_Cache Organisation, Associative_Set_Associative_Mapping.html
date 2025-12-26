@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>202 Cache Organisation, Associative Set Associative Mapping - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>202 Cache Organisation, Associative Set Associative Mapping</h1><p class="subject-tag">MCS</p></div></header><main class="container"><article class="note-content"><h1>MCS_202: Advanced Memory Organisation</h1>
+<h2>Cache Organisation, Associative &amp; Set Associative Mapping 🧠⚡</h2>
+<hr>
+<h2>1. What is Cache Organisation? 🗂️</h2>
+<p><strong>Cache organisation</strong> refers to the way data from main memory is stored and managed in the cache. The goal is to maximize the chance that the data the CPU needs is already in the cache (a &quot;cache hit&quot;), minimizing slow access to main memory.</p>
+<hr>
+<h2>2. Mapping Techniques Overview 📊</h2>
+<p>These are strategies for deciding where a block of memory can be placed in the cache.</p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Placement Rule</th>
+<th>Flexibility</th>
+<th>Hardware Cost</th>
+<th>Performance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Direct Mapping 🛣️</td>
+<td>Only one cache line for each memory block</td>
+<td>Low</td>
+<td>Low</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Associative Mapping 🔄</td>
+<td>Any cache line for any memory block</td>
+<td>High</td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Set Associative Mapping 🗃️</td>
+<td>Any line within a specific set of cache lines</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Associative Mapping (Fully Associative) 🔄</h2>
+<h3>Concept</h3>
+<ul>
+<li><strong>Any block</strong> from main memory can be loaded into <strong>any cache line</strong>.</li>
+<li>Each cache line stores a <strong>tag</strong> (part of the memory address) to identify which memory block is stored.</li>
+</ul>
+<h3>Advantages</h3>
+<ul>
+<li>Maximum flexibility: lowest chance of &quot;conflict misses.&quot;</li>
+<li>Excellent for irregular memory access patterns.</li>
+</ul>
+<h3>Disadvantages</h3>
+<ul>
+<li>Expensive and complex hardware: must check all cache tags in parallel.</li>
+<li>Slightly slower lookup as cache size increases.</li>
+</ul>
+<h3>Example Table</h3>
+<table>
+<thead>
+<tr>
+<th>Cache Line</th>
+<th>Data</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>[Block from address X]</td>
+<td>Tag_X</td>
+</tr>
+<tr>
+<td>1</td>
+<td>[Block from address Y]</td>
+<td>Tag_Y</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody></table>
+<h4>Visual Analogy:</h4>
+<p>Like a parking lot where any car can park in any spot, no restrictions!</p>
+<hr>
+<h2>4. Set Associative Mapping 🗃️</h2>
+<h3>Concept</h3>
+<ul>
+<li>The cache is divided into <strong>sets</strong>.</li>
+<li>Each set contains multiple lines (e.g., 2, 4, or 8).</li>
+<li><strong>A memory block maps to one set only</strong>, but within that set can be placed in any line.</li>
+</ul>
+<h4>How to calculate:</h4>
+<ul>
+<li><strong>Number of sets = Total cache lines ÷ Number of lines per set (degree of associativity)</strong></li>
+</ul>
+<h4>Example:</h4>
+<ul>
+<li>16 cache lines, 4-way set associative:<ul>
+<li>Number of sets = 16 ÷ 4 = 4 sets</li>
+<li>Each set has 4 lines.</li>
+</ul>
+</li>
+</ul>
+<h3>Advantages</h3>
+<ul>
+<li>Balances flexibility and hardware cost.</li>
+<li>Greatly reduces conflict misses compared to direct mapping.</li>
+</ul>
+<h3>Disadvantages</h3>
+<ul>
+<li>More complex than direct mapping.</li>
+<li>Slightly less flexible than fully associative.</li>
+</ul>
+<h3>Example Table (4-way set associative, 16 lines, 4 sets):</h3>
+<table>
+<thead>
+<tr>
+<th>Set #</th>
+<th>Line 1</th>
+<th>Line 2</th>
+<th>Line 3</th>
+<th>Line 4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+</tr>
+</tbody></table>
+<h4>Visual Analogy:</h4>
+<p>Like a parking lot divided into sections. Each car can park in any spot within its assigned section.</p>
+<hr>
+<h2>5. Comparison Table 📑</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Direct Mapping</th>
+<th>Set Associative Mapping</th>
+<th>Fully Associative Mapping</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Placement</td>
+<td>1 line only</td>
+<td>Any line in set</td>
+<td>Any line</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Low</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Hardware Complexity</td>
+<td>Low</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Conflict Misses</td>
+<td>High</td>
+<td>Low</td>
+<td>Lowest</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. Visual Diagram 🖼️</h2>
+<pre><code>            +--------+        +--------+        +--------+
+            |  CPU   | &lt;----&gt; | Cache  | &lt;----&gt; |  RAM   |
+            +--------+        +--------+        +--------+
+                               /      \
+                +---- Set 0 ----+    +---- Set 1 ----+
+                |  line 1      |    |  line 1      |
+                |  line 2      |    |  line 2      |
+                |  ...         |    |  ...         |
+</code></pre>
+<hr>
+<h2>7. Key Terms 🗝️</h2>
+<ul>
+<li><strong>Cache Line:</strong> The smallest unit of storage in cache.</li>
+<li><strong>Set:</strong> A group of lines in set associative mapping.</li>
+<li><strong>Tag:</strong> Part of memory address stored in cache to identify the memory block.</li>
+<li><strong>Associativity:</strong> Number of lines per set (e.g., 2-way, 4-way).</li>
+<li><strong>Cache Hit:</strong> Data found in cache.</li>
+<li><strong>Cache Miss:</strong> Data not found in cache; must fetch from RAM.</li>
+</ul>
+<hr>
+<h2>8. Concept-Building Questions ❓</h2>
+<ol>
+<li><p><strong>If a cache has 32 lines and is 4-way set associative, how many sets does it have?</strong></p>
+<ul>
+<li><em>Hint: Sets = lines ÷ associativity.</em></li>
+</ul>
+</li>
+<li><p><strong>Why might fully associative mapping not be used in very large caches?</strong></p>
+</li>
+<li><p><strong>Describe a scenario where set associative mapping is better than direct mapping.</strong></p>
+</li>
+<li><p><strong>What happens if all lines in a set are full and a new block mapping to that set needs to be loaded?</strong></p>
+</li>
+<li><p><strong>Explain with an analogy: How does set associative mapping strike a balance between direct and fully associative mapping?</strong></p>
+</li>
+</ol>
+<hr>
+<h2>9. Summary &amp; Takeaways 📝</h2>
+<ul>
+<li><strong>Associative mapping</strong> allows maximum flexibility but is expensive.</li>
+<li><strong>Set associative mapping</strong> is the compromise: less hardware than fully associative, but fewer misses than direct mapping.</li>
+<li>The number of sets and associativity degree are designed based on performance vs. cost trade-offs.</li>
+</ul>
+<hr>
+<p><strong>Next up:</strong> Exploring cache replacement policies (e.g., LRU, FIFO) and their impact on performance! 🚀</p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

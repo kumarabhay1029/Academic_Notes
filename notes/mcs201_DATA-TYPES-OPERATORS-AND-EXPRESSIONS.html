@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>DATA TYPES OPERATORS AND EXPRESSIONS - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>DATA TYPES OPERATORS AND EXPRESSIONS</h1><p class="subject-tag">MCS201</p></div></header><main class="container"><article class="note-content"><h1>📘 UNIT-2: DATA TYPES, OPERATORS AND EXPRESSIONS</h1>
+<h2>🔹 What are Data Types?</h2>
+<p>Data types specify the type of data a variable can hold. They help the compiler or interpreter understand how the data should be stored and what operations can be performed on it.</p>
+<hr>
+<h2>🔸 Basic Data Types</h2>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Memory</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>int</code> (Integer)</td>
+<td>2 Bytes</td>
+<td>–32,768 to 32,767</td>
+</tr>
+<tr>
+<td><code>char</code> (Character)</td>
+<td>1 Byte</td>
+<td>–128 to 127</td>
+</tr>
+<tr>
+<td><code>float</code> (Floating Pt)</td>
+<td>4 Bytes</td>
+<td>3.4e–38 to 3.4e+38</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>8 Bytes</td>
+<td>1.7e–308 to 1.7e+308</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔸 Data Type Qualifiers</h2>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Size (Bytes)</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>short int</code> / <code>int</code></td>
+<td>2</td>
+<td>-32,768 to 32,767</td>
+</tr>
+<tr>
+<td><code>long int</code></td>
+<td>4</td>
+<td>-2,147,483,648 to 2,147,483,647</td>
+</tr>
+<tr>
+<td><code>signed int</code></td>
+<td>2</td>
+<td>-32,768 to 32,767</td>
+</tr>
+<tr>
+<td><code>unsigned int</code></td>
+<td>2</td>
+<td>0 to 65,535</td>
+</tr>
+<tr>
+<td><code>signed char</code></td>
+<td>1</td>
+<td>-128 to 127</td>
+</tr>
+<tr>
+<td><code>unsigned char</code></td>
+<td>1</td>
+<td>0 to 255</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔸 Variables</h2>
+<p><strong>Definition:</strong><br>A variable is an identifier that stores data for future use.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">int a;  // &quot;a&quot; is a variable of type int, takes 2 bytes
+a = 5;  // value 5 is assigned to &quot;a&quot;
+</code></pre>
+<hr>
+<h2>🔸 Declaring &amp; Initializing Variables</h2>
+<ul>
+<li><strong>Declaration Only:</strong><pre><code class="language-c">int a;
+</code></pre>
+</li>
+<li><strong>Initialization at Declaration:</strong><pre><code class="language-c">int a = 10;
+</code></pre>
+</li>
+<li><strong>Assignment After Declaration:</strong><pre><code class="language-c">a = 5;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>🔸 Constants</h2>
+<p>Constants follow strict formatting rules. Types include:</p>
+<h3>🔹 Integer Constants</h3>
+<p>Valid: <code>1</code>, <code>443</code>, <code>32767</code><br>Invalid:</p>
+<ul>
+<li><code>12.45</code> → float</li>
+<li><code>1 245</code> → spaces not allowed</li>
+<li><code>0785</code> → cannot start with 0 (octal issue)</li>
+</ul>
+<h3>🔹 Octal Integer Constants</h3>
+<ul>
+<li><strong>Range</strong>: Base 8 → <code>0</code> to <code>7</code></li>
+<li><strong>Valid</strong>: <code>0</code>, <code>01</code>, <code>0747</code></li>
+<li><strong>Invalid</strong>: <code>743</code>, <code>0438</code>, <code>0.777.77</code></li>
+</ul>
+<h3>🔹 Hexadecimal Integer Constants</h3>
+<ul>
+<li><strong>Valid</strong>: <code>0x0</code>, <code>0XF77</code>, <code>0xABCD</code></li>
+<li><strong>Invalid</strong>: <code>0BEF</code>, <code>0x.4bff</code>, <code>0XGBC</code></li>
+</ul>
+<hr>
+<h3>🔹 Floating Point Constants</h3>
+<p>Format: <code>[sign] mantissa × 10^[exponent]</code></p>
+<p>Example:</p>
+<pre><code class="language-c">+12.34 // float because of decimal
+</code></pre>
+<hr>
+<h3>🔹 Character Constants</h3>
+<ul>
+<li>Single character enclosed in single quotes:<pre><code class="language-c">char ch = &#39;a&#39;;
+</code></pre>
+</li>
+</ul>
+<h4>Escape Sequences:</h4>
+<table>
+<thead>
+<tr>
+<th>Escape</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\n</code></td>
+<td>New line</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>Tab</td>
+</tr>
+<tr>
+<td><code>\a</code></td>
+<td>Alarm</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>Backslash</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>🔹 String Constants</h3>
+<ul>
+<li>A <strong>string</strong> is a sequence of characters in double quotes.<pre><code class="language-c">char name[20] = &quot;Brijesh&quot;;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>🔸 Symbolic Constants</h2>
+<p>Defined using <code>#define</code> outside <code>main()</code>.</p>
+<pre><code class="language-c">#define MAX 100
+#define PI 3.141592
+#define TRUE 1
+#define FALSE 0
+</code></pre>
+<hr>
+<h2>🔸 Expressions &amp; Operators</h2>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">z = a + b;
+</code></pre>
+<ul>
+<li><code>a</code>, <code>b</code>, <code>z</code> → operands  </li>
+<li><code>+</code> → operator  </li>
+<li><code>=</code> → assignment operator</li>
+</ul>
+<hr>
+<h2>🔸 Arithmetic Operators</h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>+</code></td>
+<td>Addition</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Subtraction</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplication</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Division (quotient)</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Modulus (remainder)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔸 Increment Operators</h2>
+<ul>
+<li><strong>Post-increment</strong>: <code>a++</code> → use then increment  </li>
+<li><strong>Pre-increment</strong>: <code>++a</code> → increment then use</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">int a = 2, b = 3;
+int c = ++a - b--;
+</code></pre>
+<hr>
+<h2>🔸 Relational Operators</h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>==</code></td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal to</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔸 Logical Operators</h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;&amp;</code></td>
+<td>Logical AND</td>
+</tr>
+<tr>
+<td>`</td>
+<td></td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>Logical NOT</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔸 Conditional &amp; Comma Operators</h2>
+<h3>Conditional (<code>?:</code>):</h3>
+<pre><code class="language-c">(condition) ? (value_if_true) : (value_if_false);
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">x = (y &lt; 20) ? 9 : 10;
+</code></pre>
+<pre><code class="language-c">printf(&quot;%s&quot;, grade &gt;= 50 ? &quot;passed&quot; : &quot;failed&quot;);
+</code></pre>
+<h3>Comma Operator:</h3>
+<p>Evaluates multiple expressions:</p>
+<pre><code class="language-c">x = (y - 2, y - 1);  // x gets value of last expression
+</code></pre>
+<hr>
+<h2>🔸 Type Cast Operator</h2>
+<p>Used to convert one data type into another.</p>
+<pre><code class="language-c">float f = 3.5;
+int a = (int)f; // f is typecast to int
+</code></pre>
+<hr>
+<h2>🔸 <code>sizeof</code> Operator</h2>
+<p>Returns the size (in bytes) of a data type or variable.</p>
+<pre><code class="language-c">sizeof(int);  // 2 bytes
+</code></pre>
+<hr>
+<h2>🔸 C Shorthand Operators</h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Example</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>+=</code></td>
+<td><code>a += 2</code></td>
+<td><code>a = a + 2</code></td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td><code>a -= 2</code></td>
+<td><code>a = a - 2</code></td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td><code>a *= 2</code></td>
+<td><code>a = a * 2</code></td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td><code>a /= 2</code></td>
+<td><code>a = a / 2</code></td>
+</tr>
+<tr>
+<td><code>%=</code></td>
+<td><code>a %= 2</code></td>
+<td><code>a = a % 2</code></td>
+</tr>
+<tr>
+<td><code>&amp;&amp;=</code></td>
+<td><code>a &amp;&amp;= b</code></td>
+<td><code>a = a &amp;&amp; b</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔸 Operator Precedence and Associativity</h2>
+<table>
+<thead>
+<tr>
+<th>Precedence</th>
+<th>Operators</th>
+<th>Associativity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Highest</td>
+<td><code>()</code> <code>++</code> <code>--</code> <code>(type)</code> <code>sizeof</code></td>
+<td>Left to Right</td>
+</tr>
+<tr>
+<td></td>
+<td><code>*</code> <code>/</code> <code>%</code></td>
+<td>Left to Right</td>
+</tr>
+<tr>
+<td></td>
+<td><code>+</code> <code>-</code></td>
+<td>Left to Right</td>
+</tr>
+<tr>
+<td></td>
+<td><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code></td>
+<td>Left to Right</td>
+</tr>
+<tr>
+<td></td>
+<td><code>==</code> <code>!=</code></td>
+<td>Left to Right</td>
+</tr>
+<tr>
+<td></td>
+<td><code>&amp;&amp;</code></td>
+<td>Left to Right</td>
+</tr>
+<tr>
+<td></td>
+<td>`</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>?:</code></td>
+<td>Right to Left</td>
+</tr>
+<tr>
+<td>Lowest</td>
+<td><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code></td>
+<td>Right to Left</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>✅ Summary</h2>
+<ul>
+<li>Understand different data types, their size, and range.</li>
+<li>Learn variable declaration and assignment.</li>
+<li>Use constants and symbolic constants properly.</li>
+<li>Master arithmetic, relational, logical, and shorthand operators.</li>
+<li>Understand operator precedence and associativity for correct evaluation of expressions.</li>
+</ul>
+<hr>
+<p>🟦 <em>End of UNIT-2</em></p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

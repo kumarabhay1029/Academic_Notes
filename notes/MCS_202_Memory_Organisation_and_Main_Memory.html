@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>202 Memory Organisation and Main Memory - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>202 Memory Organisation and Main Memory</h1><p class="subject-tag">MCS</p></div></header><main class="container"><article class="note-content"><h1>MCS_202: Memory Organisation and Main Memory 🖥️🧠</h1>
+<hr>
+<h2>1. Introduction to Memory Organisation 📚</h2>
+<p><strong>Memory organisation</strong> is fundamental to understanding how a computer system stores, arranges, and retrieves data efficiently. The choice of memory type and its structure directly affects the speed and performance of a computer.</p>
+<hr>
+<h2>2. Types of Memory in a Computer 🏗️</h2>
+<h3>a) Register Memory 📝</h3>
+<ul>
+<li><strong>Location:</strong> Inside the CPU.</li>
+<li><strong>Purpose:</strong> Stores data for immediate CPU calculations.</li>
+<li><strong>Characteristics:</strong> Fastest, smallest capacity (only a few bytes), most expensive per bit.</li>
+</ul>
+<h3>b) Cache Memory ⚡</h3>
+<ul>
+<li><strong>Location:</strong> Between CPU and RAM.</li>
+<li><strong>Purpose:</strong> Temporarily holds frequently accessed data and instructions to speed up processing.</li>
+<li><strong>Characteristics:</strong> Faster and smaller than RAM, larger than registers.</li>
+</ul>
+<h3>c) Main Memory (RAM) 🔋</h3>
+<ul>
+<li><strong>Location:</strong> Directly accessible by the CPU.</li>
+<li><strong>Purpose:</strong> Holds programs and data currently in use.</li>
+<li><strong>Characteristics:</strong> Volatile (data lost when power is off), larger than cache/register.</li>
+</ul>
+<h3>d) Secondary/Storage Memory 💽</h3>
+<ul>
+<li><strong>Examples:</strong> Hard drives, SSDs, USB drives.</li>
+<li><strong>Purpose:</strong> Stores data and programs permanently.</li>
+<li><strong>Characteristics:</strong> Largest capacity, slowest access speed, non-volatile.</li>
+</ul>
+<hr>
+<h2>3. Memory Hierarchy 🏔️</h2>
+<pre><code>|-----------|      &lt;-- Fastest, Smallest, Most Expensive
+| Registers |    📝
+|-----------|
+|   Cache   |    ⚡
+|-----------|
+|    RAM    |    🔋
+|-----------|
+| Secondary |
+|  Storage  |    💽
+|-----------|      &lt;-- Slowest, Largest, Cheapest
+</code></pre>
+<ul>
+<li><strong>Higher levels:</strong> Faster access, smaller size, higher cost per bit.</li>
+<li><strong>Lower levels:</strong> Slower access, larger size, lower cost per bit.</li>
+</ul>
+<hr>
+<h2>4. Need for Memory Hierarchy 🤔</h2>
+<ul>
+<li><strong>Cost and Technology:</strong> Fast memory (registers, cache) is expensive and limited in size; slow memory (storage) is cheap and large.</li>
+<li><strong>Efficiency:</strong> Frequently used data stays in fast memory, while rarely used data stays in slower, larger memory.</li>
+<li><strong>Analogy:</strong> Like a desk (registers), a drawer (cache), a cabinet (RAM), and a storage room (disk).</li>
+</ul>
+<hr>
+<h2>5. Main Memory Organisation 🧩</h2>
+<h3>a) Basic Structure</h3>
+<ul>
+<li><strong>Memory Cell:</strong> Smallest unit, stores 1 bit (0 or 1).</li>
+<li><strong>Word:</strong> Group of bits/bytes, size depends on system (commonly 8, 16, 32, or 64 bits).</li>
+<li><strong>Memory Array:</strong> Large grid of memory cells, arranged in rows and columns.</li>
+<li><strong>Address:</strong> Unique identifier for each cell or word, used for accessing data.</li>
+</ul>
+<h3>b) Addressing Methods</h3>
+<p><strong>Byte Addressable Memory</strong></p>
+<ul>
+<li>Each byte (8 bits) has a unique address.</li>
+<li>Most modern systems use this approach.</li>
+<li>Example: Address 100 points to the 100th byte.</li>
+</ul>
+<p><strong>Word Addressable Memory</strong></p>
+<ul>
+<li>Each word (group of bytes, e.g., 4 bytes) has a unique address.</li>
+<li>Example: Address 25 points to the 25th word (which may actually be the 100th byte if word size is 4 bytes).</li>
+</ul>
+<hr>
+<h2>6. Memory Operations 🔄</h2>
+<p><strong>Read Operation</strong></p>
+<ul>
+<li>CPU sends address to memory, memory returns data from that address.</li>
+</ul>
+<p><strong>Write Operation</strong></p>
+<ul>
+<li>CPU sends address and data to memory, memory stores data at that address.</li>
+</ul>
+<p><strong>Memory Access Time</strong></p>
+<ul>
+<li>The time taken to complete a read or write operation.</li>
+<li>Faster access time improves system performance.</li>
+</ul>
+<hr>
+<h2>7. Visual Representation 🎨</h2>
+<h3>Byte Addressable Example</h3>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>01101100</td>
+</tr>
+<tr>
+<td>1</td>
+<td>10101010</td>
+</tr>
+<tr>
+<td>2</td>
+<td>00011111</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11001100</td>
+</tr>
+<tr>
+<td>4</td>
+<td>11110000</td>
+</tr>
+</tbody></table>
+<ul>
+<li>To read data at address 2, CPU retrieves <code>00011111</code>.</li>
+</ul>
+<h3>Word Addressable Example (word size = 4 bytes)</h3>
+<table>
+<thead>
+<tr>
+<th>Word Address</th>
+<th>Data (4 bytes)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>01101100 10101010 00011111 11001100</td>
+</tr>
+<tr>
+<td>1</td>
+<td>11110000 00110011 01010101 10011001</td>
+</tr>
+</tbody></table>
+<ul>
+<li>To access the 5th byte, find word address 1 and extract the correct byte.</li>
+</ul>
+<hr>
+<h2>8. Main Memory Access Steps 📤📥</h2>
+<ol>
+<li><strong>CPU selects address</strong> to read/write.</li>
+<li>Address sent to Memory Address Register (MAR).</li>
+<li>For read: Data from address sent to Memory Data Register (MDR) and then to CPU.</li>
+<li>For write: CPU provides data to MDR, which is then stored at given address.</li>
+</ol>
+<hr>
+<h2>9. Key Points to Remember ✅</h2>
+<ul>
+<li>Main memory organisation determines how efficiently the CPU can access and process data.</li>
+<li>Memory hierarchy ensures a balance between speed, size, and cost.</li>
+<li>Addressing can be at byte or word level—understand the difference for programming and hardware design.</li>
+<li>Memory operations (read/write) and their timing are crucial for overall computer performance.</li>
+</ul>
+<hr>
+<p><strong>Continue exploring:</strong><br>Next, you will learn about <strong>cache memory</strong>—its organisation, mapping techniques, and role in speeding up memory access. 🚀</p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

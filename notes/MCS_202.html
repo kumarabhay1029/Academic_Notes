@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>202 - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>202</h1><p class="subject-tag">MCS</p></div></header><main class="container"><article class="note-content"><h1>MCS_202 Boolean Expression: SOP, POS, Algebraic Simplification &amp; K-Map</h1>
+<hr>
+<h2>1. Boolean Expression Forms</h2>
+<h3>SOP (Sum of Products) Form</h3>
+<ul>
+<li>Each term is an AND (product) of variables or their complements.</li>
+<li>All such terms are OR&#39;ed (summed) together.</li>
+</ul>
+<h3>POS (Product of Sums) Form</h3>
+<ul>
+<li>Each term is an OR (sum) of variables or their complements.</li>
+<li>All such terms are AND&#39;ed (multiplied) together.</li>
+</ul>
+<hr>
+<h2>2. Simplification by Algebraic Method</h2>
+<h3>Example 1</h3>
+<p>Given:<br><strong>F = ((A·B) + (A·B))</strong><br>(Suppose the overline on the second &#39;A&#39; and &#39;B&#39; means complement)</p>
+<p>Let&#39;s simplify step by step:</p>
+<ol>
+<li><strong>Apply the Distributive Law:</strong><ul>
+<li>(A·B) + (A̅·B̅)</li>
+</ul>
+</li>
+<li>This cannot be simplified further by combining as they are not like terms.</li>
+</ol>
+<p><strong>If the intention was:</strong><br><strong>F = (A·B) + (A̅·B̅)</strong><br>This is the standard form for Exclusive NOR (XNOR).</p>
+<h3>Example 2</h3>
+<p>Given:<br><strong>F = (A + B)·(A + B)</strong><br>(Again, assume overlines as complements)</p>
+<p>Let&#39;s write the given function as:<br><strong>F = (A + B̅)·(A̅ + B)</strong></p>
+<p><strong>Using distributive law:</strong></p>
+<p>F = (A + B̅)·(A̅ + B)<br>  = A·A̅ + A·B + B̅·A̅ + B̅·B<br>  = 0 + A·B + A̅·B̅ + 0<br>  = (A·B) + (A̅·B̅)</p>
+<p>This is the simplified form, which is XNOR.</p>
+<blockquote>
+<p><em>See uploaded images for stepwise algebraic simplification.</em></p>
+</blockquote>
+<hr>
+<h2>3. Simplification by K-Map</h2>
+<p>Both SOP and POS forms can be simplified using Karnaugh Map (K-Map).<br>In exams, you may be asked to simplify using K-Map.</p>
+<hr>
+<h3>2-variable K-Map Example</h3>
+<p>Given:<br><strong>F = Σ(0, 1, 2)</strong><br>(Sigma means SUM, i.e., SOP form. The numbers are minterms in decimal.)</p>
+<h4>Step 1: Number of Variables</h4>
+<ul>
+<li>Find the largest minterm: 2</li>
+<li>So, variables needed: 2 (since 2^2 = 4 covers 0-3)</li>
+</ul>
+<p>Let the variables be x and y.</p>
+<h4>Step 2: Truth Table</h4>
+<table>
+<thead>
+<tr>
+<th>Decimal</th>
+<th>x</th>
+<th>y</th>
+<th>Output F (SOP)</th>
+<th>Minterm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>x̅y̅</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>x̅y</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>xy̅</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>xy</td>
+</tr>
+</tbody></table>
+<h4>Step 3: K-Map</h4>
+<pre><code>     y
+    0   1
+x +---+---+
+0 | 1 | 1 |
+1 | 1 | 0 |
+</code></pre>
+<p>Or using positions:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>y=0</th>
+<th>y=1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x=0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>x=1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h4>Step 4: Grouping</h4>
+<ul>
+<li>g1: The row x=0 (covers both y=0 and y=1) ⇒ x̅</li>
+<li>g2: The column y=0 (covers x=0 and x=1) ⇒ y̅</li>
+</ul>
+<h4>Step 5: Simplified Answer</h4>
+<p><strong>F = x̅ + y̅</strong></p>
+<p><img src="https://drive.google.com/uc?export=view&id=1GbKl4dLC21RNwqGjfMjjAT9qKx2GLvNU" alt="K-Map 2 variable"></p>
+<hr>
+<h3>3-variable K-Map Example</h3>
+<p>Given:<br><strong>F = Σ(0, 1, 2, 4, 6)</strong></p>
+<h4>Step 1: Number of Variables</h4>
+<ul>
+<li>Largest minterm is 6 → Need 3 variables (x, y, z)</li>
+</ul>
+<h4>Step 2: Truth Table</h4>
+<table>
+<thead>
+<tr>
+<th>Decimal</th>
+<th>x</th>
+<th>y</th>
+<th>z</th>
+<th>F</th>
+<th>Minterm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>x̅y̅z̅</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>x̅y̅z</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>x̅y z̅</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>x̅y z</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>x y̅z̅</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>x y̅z</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>x y z̅</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>x y z</td>
+</tr>
+</tbody></table>
+<h4>Step 3: K-Map (3 variables)</h4>
+<p>K-map Layout:</p>
+<pre><code>       yz
+      00 01 11 10
+x=0 | 1 | 1 | 0 | 1 |
+x=1 | 1 | 0 | 0 | 1 |
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>y=0,z=0</th>
+<th>y=0,z=1</th>
+<th>y=1,z=1</th>
+<th>y=1,z=0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x=0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>x=1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4>Step 4: Grouping</h4>
+<ul>
+<li>g1: Column z=0 (x=0/y=0/z=0, x=1/y=0/z=0, x=0/y=1/z=0, x=1/y=1/z=0) ⇒ z̅</li>
+<li>g2: Row x=0, y=0 (covers x=0/y=0/z=0 and x=0/y=0/z=1) ⇒ x̅y̅</li>
+</ul>
+<h4>Step 5: Simplified Answer</h4>
+<p><strong>F = z̅ + x̅y̅</strong></p>
+<p><img src="https://drive.google.com/uc?export=view&id=1G87DPvefmV8yYJ9xN57oZKitwITwAZhB" alt="K-map for 3 variable"></p>
+<hr>
+<h2>Teaching Notes</h2>
+<ul>
+<li>Always start by identifying the number of variables from the largest minterm.</li>
+<li>Draw the truth table before making the K-Map.</li>
+<li>Group all possible 1s in the K-Map for maximum simplification.</li>
+<li>For algebraic simplification, apply Boolean laws step-by-step with justification.</li>
+</ul>
+<hr>
+<h3>References</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean Algebra Laws</a></li>
+<li><a href="https://www.geeksforgeeks.org/karnaugh-map-k-map-in-digital-logic/">K-Map Explanation</a></li>
+</ul>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

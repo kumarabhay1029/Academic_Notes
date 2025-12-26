@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>C Programming Notes(Part 1) - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>C Programming Notes(Part 1)</h1><p class="subject-tag">MCSL205</p></div></header><main class="container"><article class="note-content"><h1>MCSL-205 Section - 1 (C Programming)</h1>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic-program-structure">Basic Program Structure</a></li>
+<li><a href="#important-components">Important Components</a><ul>
+<li><a href="#1-header-files">Header Files</a></li>
+<li><a href="#2-keywords-and-functions">Keywords and Functions</a></li>
+</ul>
+</li>
+<li><a href="#example-simple-output-program">Example: Simple Output Program</a><ul>
+<li><a href="#multiple-print-statements">Multiple Print Statements</a></li>
+</ul>
+</li>
+<li><a href="#using-return-0-instead-of-getch">Using <code>return 0</code> Instead of <code>getch()</code></a></li>
+<li><a href="#data-types-and-format-specifiers">Data Types and Format Specifiers</a></li>
+<li><a href="#program-add-two-numbers">Program: Add Two Numbers</a></li>
+<li><a href="#program-add-two-numbers-with-user-input">Program: Add Two Numbers with User Input</a></li>
+<li><a href="#program-area-and-circumference-of-a-circle">Program: Area and Circumference of a Circle</a></li>
+<li><a href="#note-on-compilers">Note on Compilers</a></li>
+<li><a href="#homework">HOMEWORK</a></li>
+<li><a href="#conditional-statements">Conditional Statements</a><ul>
+<li><a href="#1-if-else-greater-of-two-numbers">If-Else: Greater of Two Numbers</a></li>
+<li><a href="#2-else-if-greater-of-three-numbers">Else-If: Greater of Three Numbers</a></li>
+<li><a href="#3-leap-year-checker">Leap Year Checker</a></li>
+<li><a href="#4-btech-eligibility-check">BTECH Eligibility Check</a></li>
+<li><a href="#5-compare-age-of-two-students">Compare Age of Two Students</a></li>
+</ul>
+</li>
+<li><a href="#lab-continues">LAB CONTINUES...</a></li>
+<li><a href="#homework-1">HOMEWORK</a></li>
+</ol>
+<hr>
+<h2>Introduction</h2>
+<ol>
+<li><strong>Preferred Compiler:</strong> Use <strong>BORLAND C/C++</strong> as per syllabus; <strong>TURBO C/C++</strong> is also acceptable.</li>
+<li><strong>What is Programming?</strong> Understand what programming is and why it is necessary.</li>
+<li><strong>Programming Grammar:</strong> Every language has its own grammar (rules and syntax).</li>
+<li><strong>Syntax:</strong> Each program must follow the proper syntax.</li>
+</ol>
+<hr>
+<h2>Basic Program Structure</h2>
+<p>Typical C program structure:</p>
+<pre><code class="language-c">#include &lt;header_file&gt;
+void main() {
+   // body of program
+}
+</code></pre>
+<ul>
+<li><code>main()</code> is the starting point of program execution.</li>
+<li>A <strong>function</strong> is a set of instructions that produces a result.</li>
+<li>In mathematics, <code>f(x)</code> denotes a function with argument x.</li>
+</ul>
+<hr>
+<h2>Important Components</h2>
+<h3>1. Header Files</h3>
+<p>Header files provide access to library functions required to compile and run programs.</p>
+<ul>
+<li><strong>Common Header Files:</strong><ul>
+<li><code>#include &lt;stdio.h&gt;</code> – Standard Input/Output (required in almost every program)</li>
+<li><code>#include &lt;conio.h&gt;</code> – Console Input/Output</li>
+<li><code>#include &lt;stdlib.h&gt;</code> – General utilities</li>
+<li><code>#include &lt;math.h&gt;</code> – Mathematical operations</li>
+<li><code>#include &lt;string.h&gt;</code> – String operations</li>
+</ul>
+</li>
+</ul>
+<p>These files help the compiler link to the appropriate libraries.</p>
+<h3>2. Keywords and Functions</h3>
+<p>Frequently used functions:</p>
+<ul>
+<li><code>printf();</code> – Print output to the screen</li>
+<li><code>scanf();</code> – Read input from the user</li>
+<li><code>getch();</code> – Wait for a key press</li>
+<li><code>clrscr();</code> – Clear the screen</li>
+</ul>
+<hr>
+<h2>Example: Simple Output Program</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    printf(&quot;Hello Friends&quot;);
+    getch();
+}
+</code></pre>
+<h3>Multiple Print Statements</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    printf(&quot;Hello Friends\n&quot;);
+    printf(&quot;Hello Friends\n&quot;);
+    printf(&quot;Hello Friends\n&quot;);
+    printf(&quot;Hello Friends\n&quot;);
+    printf(&quot;Hello Friends\n&quot;);
+    getch();
+}
+</code></pre>
+<ul>
+<li><code>\n</code> is used to move the output to a new line.</li>
+</ul>
+<hr>
+<h2>Using <code>return 0</code> Instead of <code>getch()</code></h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int main() {
+    printf(&quot;Hello Friends&quot;);
+    return 0;
+}
+</code></pre>
+<ul>
+<li>When using <code>int main()</code>, always return an integer (<code>return 0;</code>).</li>
+<li><code>getch()</code> is used to hold the output window open in BORLAND/TURBO C.</li>
+</ul>
+<hr>
+<h2>Data Types and Format Specifiers</h2>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Keyword</th>
+<th>Format Specifier</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Integer</td>
+<td>int</td>
+<td><code>%d</code></td>
+<td>2 bytes</td>
+</tr>
+<tr>
+<td>Character</td>
+<td>char</td>
+<td><code>%c</code></td>
+<td>1 byte</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>float</td>
+<td><code>%f</code></td>
+<td>4 bytes</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Program: Add Two Numbers</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a = 4, b = 6, c;
+    c = a + b;
+    printf(&quot;Sum = %d\n&quot;, c);
+    printf(&quot;Sum of %d and %d = %d&quot;, a, b, c);
+    getch();
+}
+</code></pre>
+<hr>
+<h2>Program: Add Two Numbers with User Input</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a, b, c;
+    printf(&quot;Enter first number: &quot;);
+    scanf(&quot;%d&quot;, &amp;a);
+
+    printf(&quot;Enter second number: &quot;);
+    scanf(&quot;%d&quot;, &amp;b);
+
+    c = a + b;
+    printf(&quot;Sum = %d\n&quot;, c);
+    printf(&quot;Sum of %d and %d = %d&quot;, a, b, c);
+    getch();
+}
+</code></pre>
+<hr>
+<h2>Program: Area and Circumference of a Circle</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#define PI 3.14
+
+void main() {
+    int r;
+    float area, cir;
+
+    printf(&quot;Enter the radius: &quot;);
+    scanf(&quot;%d&quot;, &amp;r);
+
+    area = PI * r * r;
+    cir = 2 * PI * r;
+
+    printf(&quot;Area = %f\n&quot;, area);
+    printf(&quot;Circumference = %f&quot;, cir);
+    getch();
+}
+</code></pre>
+<hr>
+<h2>Note on Compilers</h2>
+<ul>
+<li>Different compilers (G++, Code::Blocks, etc.) may have different behaviors.</li>
+<li>For learning and basic C/C++ programs, <strong>Turbo C++</strong> or <strong>Borland C++</strong> is recommended.</li>
+</ul>
+<hr>
+<h2>HOMEWORK</h2>
+<ol>
+<li>Write a program to find the <strong>area and perimeter of a rectangle</strong>.</li>
+<li>Write a program to <strong>calculate the sum and average of three numbers</strong>.</li>
+</ol>
+<hr>
+<h2>Conditional Statements</h2>
+<h3>1. If-Else: Greater of Two Numbers</h3>
+<pre><code class="language-c">void main() {
+    int a = 6, b = 8;
+    if(a &gt; b) {
+        printf(&quot;a is greater&quot;);
+    } else {
+        printf(&quot;b is greater&quot;);
+    }
+}
+</code></pre>
+<hr>
+<h3>2. Else-If: Greater of Three Numbers</h3>
+<pre><code class="language-c">void main() {
+    int a = 6, b = 7, c = 8;
+    printf(&quot;Enter three numbers: &quot;);
+    scanf(&quot;%d %d %d&quot;, &amp;a, &amp;b, &amp;c);
+
+    if(a &gt; b &amp;&amp; a &gt; c) {
+        printf(&quot;a is greater&quot;);
+    } else if(b &gt; c) {
+        printf(&quot;b is greater&quot;);
+    } else {
+        printf(&quot;c is greater&quot;);
+    }
+}
+</code></pre>
+<hr>
+<h3>3. Leap Year Checker</h3>
+<pre><code class="language-c">void main() {
+    int year;
+    printf(&quot;Enter year: &quot;);
+    scanf(&quot;%d&quot;, &amp;year);
+
+    if ((year % 4 == 0 &amp;&amp; year % 100 != 0) || (year % 400 == 0)) {
+        printf(&quot;This is a leap year&quot;);
+    } else {
+        printf(&quot;This is not a leap year&quot;);
+    }
+}
+</code></pre>
+<hr>
+<h3>4. BTECH Eligibility Check</h3>
+<pre><code class="language-c">void main() {
+    int qual, marks;
+
+    printf(&quot;Enter your qualification (class): &quot;);
+    scanf(&quot;%d&quot;, &amp;qual);
+
+    printf(&quot;Enter your 12th marks: &quot;);
+    scanf(&quot;%d&quot;, &amp;marks);
+
+    if(qual &gt;= 12 &amp;&amp; marks &gt; 75) {
+        printf(&quot;You are eligible for BTECH\n&quot;);
+    } else {
+        printf(&quot;You are not eligible, try next year&quot;);
+    }
+
+    getch();
+}
+</code></pre>
+<hr>
+<h3>5. Compare Age of Two Students</h3>
+<pre><code class="language-c">void main() {
+    int age1, age2;
+
+    printf(&quot;Enter age of first student: &quot;);
+    scanf(&quot;%d&quot;, &amp;age1);
+
+    printf(&quot;Enter age of second student: &quot;);
+    scanf(&quot;%d&quot;, &amp;age2);
+
+    if(age1 &gt; age2) {
+        printf(&quot;The first student is older.&quot;);
+    } else {
+        printf(&quot;The second student is older.&quot;);
+    }
+
+    getch();
+}
+</code></pre>
+<hr>
+<h2>LAB CONTINUES...</h2>
+<hr>
+<h2>HOMEWORK</h2>
+<ul>
+<li>Practice writing normal <code>if-else</code> programs.</li>
+<li>For each program above, write an algorithm before coding.</li>
+</ul>
+<hr>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

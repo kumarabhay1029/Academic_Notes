@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Introduction to Algorithms  Data Structures (Arrays & Lists) - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Introduction to Algorithms  Data Structures (Arrays & Lists)</h1><p class="subject-tag">INTRODUCTION TO ALGORITHMS, DATA STRUCTURES (ARRAYS & LISTS)</p></div></header><main class="container"><article class="note-content"><h1>Introduction to Algorithms, Data Structures (Arrays &amp; Lists)</h1>
+<p>The following notes draw directly from the provided sources and comprehensively detail the core concepts of algorithm analysis and the fundamental data structures of arrays and lists.</p>
+<h2>I. Introduction to Algorithms</h2>
+<h3>Algorithm Definition and Analysis</h3>
+<p>An algorithm is formally defined as a <strong>sequence of definite and effective instructions</strong>, which terminates and produces correct output from a given input. In essence, it is a formal representation of predefined instructions that a computer can perform. A coded algorithm, in a specific computer language, is called a program.</p>
+<p>The overall goal of the field known as <strong>Analysis of Algorithms</strong> is to understand the complexity of algorithms. The analysis involves determining the amount of <strong>resources</strong> (such as time and storage) that are utilized by to execute. The focus has shifted from the computer itself to computer programming and then to the creation of an algorithm.</p>
+<p>Key characteristics an algorithm should possess are:</p>
+<ol>
+<li>Input</li>
+<li>Output</li>
+<li>Definiteness</li>
+<li>Effectiveness</li>
+<li>Termination</li>
+</ol>
+<h3>Complexity and Measurement</h3>
+<p>Complexity theory deals with the resources required during computation, primarily time (how many steps (time) does it take to solve a problem) and space (how much memory does it take to solve a problem).</p>
+<p>There are two important attributes to analyse an algorithm:</p>
+<ol>
+<li><strong>Performance:</strong> The actual time/memory/disk/network bandwidth is actually used when a program is run. This depends on factors like the algorithm, machine, compiler, etc..</li>
+<li><strong>Complexity:</strong> How do the resource requirements of a program or algorithm <strong>scale</strong> (the growth of resource requirements as a function of input). This describes the inherent complexity and is independent of machine/compiler considerations.</li>
+</ol>
+<p><strong>Space complexity</strong> is the amount of storage space required by an algorithm. It is considered <strong>more critical</strong> than run time complexity because if an algorithm demands memory beyond the capacity of the machine, the program will not execute at all. Space required, unlike time, can be reused during the execution of the program.</p>
+<p><strong>Time complexity</strong> is the maximum time required by a Turing machine to execute on any input of length $n$.</p>
+<h3>Asymptotic Analysis and Notation</h3>
+<p>To describe complexity independently of specific hardware or implementation factors, <strong>asymptotic analysis</strong> is used. This technique estimates the complexity function for reasonably large length of input ‘n’ and concentrates on a &quot;proportionality&quot; approach.</p>
+<p>The primary asymptotic notations are:</p>
+<ul>
+<li><strong>Big O notation ($O$) (Upper Bound):</strong> This provides an <strong>upper bound</strong> for a function to within a constant factor. It is often used to describe the <strong>worst case running time</strong> of algorithms. Mathematically, $O(g(n)) = {f(n) : \text{There exists a positive constant } c \text{ and } n_0 \text{ such that } 0 \le f(n) \le c \cdot g(n) \text{ for all } n \ge n_0 }$.</li>
+<li><strong>Omega notation ($\Omega$) (Lower Bound):</strong> This notation gives a <strong>lower bound</strong> for a function to within a constant factor. It is used to bound the <strong>best case running time</strong> of an algorithm.</li>
+<li><strong>Theta notation ($\Theta$) (Tight Bound):</strong> This notation bounds a function to within constant factors. We say $f(n) = \Theta(g(n))$ if there exist positive constants $n_0, c_1$ and $c_2$ such that to the right of $n_0$ the value of $f(n)$ always lies between $c_1 g(n)$ and $c_2 g(n)$, both inclusive.</li>
+</ul>
+<p>Algorithms are categorized based on their complexity growth patterns, including:</p>
+<ul>
+<li>$O(1)$: Constant growth (e.g., array access $A[i]$).</li>
+<li>$O(\log n)$: Logarithmic growth (e.g., Binary search).</li>
+<li>$O(n)$: Linear growth (e.g., Looping over $n$ elements).</li>
+<li>$O(n \log n)$: $n \log n$ growth (e.g., Merge sort).</li>
+<li>$O(n^k)$: Polynomial growth (e.g., $O(n^2)$ for selection sort worst case).</li>
+<li>$O(2^n)$: Exponential growth (the most-danger growth pattern in computer science).</li>
+</ul>
+<p>The complexity of algorithms can vary based on input configuration:</p>
+<ul>
+<li><strong>Worst Case:</strong> An upper bound for running time with any input.</li>
+<li><strong>Best Case:</strong> Guarantees that under any circumstances the running time of algorithms will at least take this much time.</li>
+<li><strong>Average Case:</strong> The average running time of algorithm over all problem instances for a given size.</li>
+</ul>
+<p>For example, the exact analysis of <strong>insertion sort</strong> reveals a best-case time complexity of <strong>$O(n)$</strong> (when the list is already sorted) and a worst-case time complexity of <strong>$O(n^2)$</strong> (when the list is sorted in reverse order). The Average case running time lies between the best and the worst case.</p>
+<h2>II. Data Structures: Arrays</h2>
+<h3>Definition and Characteristics</h3>
+<p>An array is a data structure defined as a <strong>finite ordered set of homogeneous elements</strong>, which is stored in <strong>contiguous memory locations</strong>. Homogeneous means all elements must be of the same data type.</p>
+<ul>
+<li>The lower bound of an array index in C is always 0.</li>
+<li>The total memory required for the array is computed as: <code>size of (data type) X length of array</code>.</li>
+<li><strong>Multidimensional arrays</strong> are defined with a separate pair of square brackets required for each subscript.</li>
+<li>Arrays and pointers are closely related; an array name without an index is a pointer to the first element in the array.</li>
+</ul>
+<h3>Storage Representation</h3>
+<p>The elements of an array are stored in sequence. The two methods of representation are:</p>
+<ol>
+<li><strong>Row Major Representation:</strong> The first row of the array occupies the first set of the memory location reserved for the array, the second row occupies the next set, and so forth.</li>
+<li><strong>Column Major Representation:</strong> The first column of the array occupies the first set of the memory locations reserved for the array, followed by the second column, and so forth.</li>
+</ol>
+<h3>Applications of Arrays</h3>
+<p>Arrays are reliable to use when the number of items to be solved is fixed. They are used in situations where the size of the array can be established beforehand and where <strong>insertions and deletions are minimal</strong>, because these operations cause reshuffling and increase time complexity.</p>
+<p>Specific array applications include:</p>
+<ul>
+<li><strong>Sparse Matrices:</strong> Matrices with a large number of zero entries. They are efficiently stored using the <strong>3-tuple form</strong>. The first row specifies the total number of rows, number of columns, and number of non zero elements in the matrix. Subsequent rows list the row number, column number, and value of each non zero element.</li>
+<li><strong>Polynomials:</strong> Polynomials (e.g., $5x^4 + 2x^3 + 7x^2 + 10x – 8$) can be represented using arrays where each element stores the coefficient and the exponent of a term.</li>
+</ul>
+<h2>III. Data Structures: Lists</h2>
+<h3>Abstract Data Type (ADT) List</h3>
+<p>An ADT List is a <strong>finite sequence of elements</strong> of type T, along with operations such as create, update, delete, testing for empty, testing for full, finding the size, and traversing the elements. ADT definition focuses on the logical properties, not implementation details or efficiency.</p>
+<p>Lists can be implemented in two ways:</p>
+<ol>
+<li><strong>Contiguous (Array) Implementation:</strong> Entries are stored next to each other within an array. Insertion and deletion involve rewriting (shifting) all subsequent elements, making array implementation time-consuming and inefficient.</li>
+<li><strong>Linked (Pointer) Implementation:</strong> Uses pointers and dynamic memory allocation.</li>
+</ol>
+<h3>Linked Lists</h3>
+<p>A linked list is a chain of structures in which each structure (or node) consists of data as well as pointer (link), which stores the address of the next logical structure in the list. In a singly linked list, the first element is pointed to by the &quot;head&quot;, and the last node points to <strong>NULL</strong>.</p>
+<p><strong>Advantages and Disadvantages of Lists Compared to Arrays</strong>:</p>
+<ul>
+<li><strong>Advantage (Flexibility):</strong> Overflow is not a problem until the computer memory is exhausted. Changes in list, such as insertion and deletion, can be made in the middle of the list <strong>more quickly</strong> than in contiguous lists.</li>
+<li><strong>Disadvantage (Overhead):</strong> The links themselves take space which is in addition to the space that may be needed for data.</li>
+<li><strong>Disadvantage (Access):</strong> Lists are <strong>not suited for random access</strong>; reaching a desired node requires traversing a long path.</li>
+</ul>
+<h3>Types of Linked Lists</h3>
+<ol>
+<li><strong>Singly Linked Lists:</strong> Each element contains a pointer only to the next element.</li>
+<li><strong>Doubly Linked Lists:</strong> Each element consists of three fields: a data field, a pointer to the right element, and a pointer to the left element. This structure enables traversing the list in both directions to improve performance. The leftmost and rightmost links are set to NULL.</li>
+<li><strong>Circularly Linked Lists:</strong> The last element points to the first element, and the chain does not contain a NULL pointer to mark the end.</li>
+</ol>
+<h3>List Applications</h3>
+<p>Lists are used to maintain <strong>Polynomials</strong> in the memory, where the list structures store the coefficient and exponent of each term.</p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

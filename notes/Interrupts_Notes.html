@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Notes - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Notes</h1><p class="subject-tag">INTERRUPTS</p></div></header><main class="container"><article class="note-content"><h1>Interrupts in Computer Systems</h1>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#what-is-an-interrupt">What is an Interrupt?</a></li>
+<li><a href="#why-are-interrupts-important">Why are Interrupts Important?</a></li>
+<li><a href="#causes-of-interrupts">Causes of Interrupts</a></li>
+<li><a href="#interrupt-processing-handling">Interrupt Processing (Handling)</a></li>
+<li><a href="#important-points-about-interrupts">Important Points about Interrupts</a></li>
+<li><a href="#design-issues--techniques-for-interrupt-handling">Design Issues &amp; Techniques for Interrupt Handling</a><ul>
+<li><a href="#multiple-interrupt-lines">Multiple Interrupt Lines</a></li>
+<li><a href="#software-poll">Software Poll</a></li>
+<li><a href="#daisy-chain-hardware-poll">Daisy Chain (Hardware Poll)</a></li>
+<li><a href="#bus-arbitration">Bus Arbitration</a></li>
+</ul>
+</li>
+<li><a href="#interrupts-and-io-in-8086-assembly">Interrupts and I/O in 8086 Assembly</a><ul>
+<li><a href="#how-software-interrupts-work-int-instruction">How Software Interrupts Work (INT Instruction)</a></li>
+<li><a href="#common-dos-interrupt-functions-int-21h">Common DOS Interrupt Functions (INT 21H)</a></li>
+</ul>
+</li>
+<li><a href="#role-of-the-control-unit">Role of the Control Unit</a></li>
+</ol>
+<hr>
+<h2>What is an Interrupt?</h2>
+<ul>
+<li><strong>Interrupt:</strong> A mechanism that temporarily halts the normal sequence of CPU execution to service an event (internal or external).</li>
+<li>When an interrupt occurs, the CPU finishes the current instruction, then pauses the ongoing process to handle the interrupt.</li>
+</ul>
+<p><strong>In essence:</strong><br>&quot;Interrupt&quot; means to stop ongoing activity. In computing, it means to pause instruction execution (after completing the current instruction) to address an important event.</p>
+<hr>
+<h2>Why are Interrupts Important?</h2>
+<ul>
+<li><strong>Efficiency:</strong> Interrupts allow the CPU to respond immediately to important events, increasing efficiency.</li>
+<li><strong>Use Cases:</strong>  <ul>
+<li>Input/Output (I/O) operations  </li>
+<li>Error handling (e.g., division by zero)  </li>
+<li>Handling important conditions or events during program execution</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>Causes of Interrupts</h2>
+<p>Interrupts can be caused by:</p>
+<ul>
+<li><strong>Program Errors:</strong> Division by zero, exceeding result limits, address space violations, security violations.</li>
+<li><strong>Clock Interrupts:</strong> Expiry of a program&#39;s allowed time (timer/clock signal).</li>
+<li><strong>I/O Device Interrupts:</strong> When I/O operations start/complete or errors occur.</li>
+<li><strong>Hardware Errors:</strong> Memory errors, power failure, etc.</li>
+</ul>
+<hr>
+<h2>Interrupt Processing (Handling)</h2>
+<p><strong>Steps for Handling an Interrupt:</strong></p>
+<ol>
+<li><strong>Interrupt Signal:</strong> An I/O device or other source sends an interrupt signal to the CPU.</li>
+<li><strong>Complete Current Instruction:</strong> The CPU finishes the current instruction.</li>
+<li><strong>Acknowledge Interrupt:</strong> The CPU checks, acknowledges, and prepares to process the interrupt.</li>
+<li><strong>Acknowledge to Device:</strong> CPU sends an acknowledgement signal to the device.</li>
+<li><strong>Identify Source:</strong> CPU identifies which device/source caused the interrupt.</li>
+<li><strong>Save Context:</strong> CPU saves the current context (Program Counter, Processor Status Word, and general-purpose registers) to the stack.</li>
+<li><strong>Execute ISR:</strong> CPU jumps to the Interrupt Service Routine (ISR) to handle the event.</li>
+<li><strong>Program on Hold:</strong> The interrupted program is paused.</li>
+<li><strong>Restore Context:</strong> After ISR execution, CPU restores the saved context from the stack.</li>
+<li><strong>Resume Program:</strong> CPU resumes the interrupted program from where it left off.</li>
+</ol>
+<p><strong>Key Terms:</strong></p>
+<ul>
+<li><strong>ISR (Interrupt Service Routine):</strong> Special routine to handle the interrupt event.</li>
+<li><strong>Context:</strong> State of the CPU (registers, PC, PSW) before the interrupt.</li>
+</ul>
+<hr>
+<h2>Important Points about Interrupts</h2>
+<ul>
+<li><strong>Interrupts must be enabled</strong> to be acknowledged by the CPU.</li>
+<li>The CPU can temporarily <strong>disable interrupts</strong> while executing critical instructions.</li>
+<li>The CPU checks for interrupts <strong>after each instruction cycle</strong> (this is called the &quot;interrupt cycle&quot;).</li>
+<li><strong>Interrupt Cycle:</strong> Point in the instruction cycle when the CPU can recognize and respond to an interrupt.</li>
+</ul>
+<hr>
+<h2>Design Issues &amp; Techniques for Interrupt Handling</h2>
+<h3>1. Multiple Interrupt Lines</h3>
+<ul>
+<li>Assign a separate line (wire) for each interrupt source, each with a priority.</li>
+<li>The CPU services the highest priority interrupt first.</li>
+<li><strong>Limitation:</strong> Only practical for a small number of devices.</li>
+</ul>
+<h3>2. Software Poll</h3>
+<ul>
+<li>CPU jumps to a generic ISR, then polls (checks) each device status register to find the source.</li>
+<li><strong>Disadvantage:</strong> Can be time-consuming.</li>
+</ul>
+<h3>3. Daisy Chain (Hardware Poll)</h3>
+<ul>
+<li>All devices share one interrupt line.</li>
+<li>CPU sends an acknowledgement signal down the chain; devices respond in sequence.</li>
+<li><strong>Priority:</strong> Determined by the device&#39;s position in the chain (closer devices have higher priority).</li>
+</ul>
+<h3>4. Bus Arbitration</h3>
+<ul>
+<li>Only one device (bus master) can control the bus at a time.</li>
+<li>After acknowledgment, the device sends an interrupt vector (number) to the CPU.</li>
+<li>The CPU uses the vector to find the correct ISR.</li>
+</ul>
+<hr>
+<h2>Interrupts and I/O in 8086 Assembly</h2>
+<h3>How Software Interrupts Work (INT Instruction)</h3>
+<ul>
+<li><strong>Software Interrupt:</strong> A program-triggered interrupt, often used for I/O operations.</li>
+<li><strong>INT n:</strong> Instruction that triggers the interrupt vector <code>n</code>.</li>
+</ul>
+<h4>8086 Interrupt Vector Table (IVT):</h4>
+<ul>
+<li>Located in the first 1 KB of memory (256 entries, 4 bytes each)</li>
+<li>Each entry holds the address (CS:IP) of the ISR for that interrupt</li>
+</ul>
+<p><strong>Process:</strong></p>
+<ol>
+<li>INT instruction multiplies the number by 4 to find the IVT entry.</li>
+<li>CPU loads the ISR address from the IVT.</li>
+<li>CPU saves current context, jumps to ISR.</li>
+<li>ISR is executed.</li>
+<li>IRET instruction restores context, resumes previous program.</li>
+</ol>
+<hr>
+<h3>Common DOS Interrupt Functions (INT 21H)</h3>
+<ul>
+<li><strong>INT 21H:</strong> Used for DOS services (I/O, etc.)</li>
+<li>Function is selected by placing a value in the AH register before calling INT 21H.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0AH</td>
+<td>Buffered keyboard input (<code>MOV AH, 0AH</code>)</td>
+</tr>
+<tr>
+<td>4CH</td>
+<td>Exit to DOS (<code>MOV AH, 4CH</code>)</td>
+</tr>
+<tr>
+<td>08H</td>
+<td>Single ASCII character input, no echo</td>
+</tr>
+<tr>
+<td>01H</td>
+<td>Single digit input with display</td>
+</tr>
+<tr>
+<td>02H</td>
+<td>Display character in DL on monitor</td>
+</tr>
+<tr>
+<td>09H</td>
+<td>String output</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Role of the Control Unit</h2>
+<ul>
+<li>The <strong>control unit</strong> issues control signals for instruction execution and interrupt handling.</li>
+<li>Interrupt signals from external sources are received via the control bus.</li>
+</ul>
+<hr>
+<h2>Quick Recap / Tips</h2>
+<ul>
+<li><strong>Interrupts = Efficiency:</strong> Let the CPU respond to urgent tasks without constant polling.</li>
+<li><strong>Context Saving:</strong> Essential for resuming the interrupted program correctly.</li>
+<li><strong>ISRs:</strong> Handle the specific event, then return control using instructions like IRET.</li>
+<li><strong>8086 IVT:</strong> Makes interrupt handling flexible and programmable.</li>
+<li><strong>Design Techniques:</strong> Multiple lines, polling (software/hardware), bus arbitration.</li>
+</ul>
+<hr>
+<p><strong>End of Notes</strong></p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

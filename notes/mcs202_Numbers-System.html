@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Numbers System - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Numbers System</h1><p class="subject-tag">MCS202</p></div></header><main class="container"><article class="note-content"><h1>MCS-202: Computer Organization</h1>
+<h2>Unit:2 DATA REPRESENTATION(Number system)</h2>
+<hr>
+<h3>1. Decimal Number System</h3>
+<ul>
+<li><strong>Symbols Used</strong>: <code>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</code></li>
+<li><strong>Number of Symbols</strong>: 10  </li>
+<li><strong>Base/Radix</strong>: 10</li>
+</ul>
+<blockquote>
+<p><strong>Why do we use base 10 (₁₀)?</strong><br>Imagine a class where all students are from Delhi. You wouldn’t need to mention your origin because everyone already knows it. But if students come from different countries, you&#39;d need a way to identify each person&#39;s origin. Similarly, we write the base (like ₁₀) to indicate that the number belongs to the decimal system.</p>
+</blockquote>
+<blockquote>
+<p><strong>What happens if we don’t write the base?</strong><br>Without specifying the base, it becomes unclear which number system the number belongs to. That’s why we use subscripts like ₁₀.</p>
+</blockquote>
+<p><strong>Example</strong>:<br><code>(257)₁₀</code> → Decimal representation</p>
+<hr>
+<h3>2. Binary Number System</h3>
+<ul>
+<li><strong>Symbols Used</strong>: <code>{0, 1}</code></li>
+<li><strong>Number of Symbols</strong>: 2  </li>
+<li><strong>Base/Radix</strong>: 2</li>
+</ul>
+<p><strong>Example</strong>:<br><code>(1010)₂</code></p>
+<hr>
+<h3>3. Octal Number System</h3>
+<ul>
+<li><strong>Symbols Used</strong>: <code>{0, 1, 2, 3, 4, 5, 6, 7}</code></li>
+<li><strong>Number of Symbols</strong>: 8  </li>
+<li><strong>Base/Radix</strong>: 8</li>
+</ul>
+<p><strong>Example</strong>:<br><code>(257)₈</code></p>
+<hr>
+<h3>4. Hexadecimal Number System</h3>
+<ul>
+<li><strong>Symbols Used</strong>: <code>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F}</code>  </li>
+<li><strong>Number of Symbols</strong>: 16  </li>
+<li><strong>Base/Radix</strong>: 16 (also written as H or ⋌)</li>
+</ul>
+<p><strong>Example</strong>:<br><code>(2A6)₁₆ = (2A6)H = (2A6)⋌</code></p>
+<blockquote>
+<p><strong>Note</strong>: In calculations, the numerical equivalents of letters are used:<br><code>A = 10</code>, <code>B = 11</code>, <code>C = 12</code>, <code>D = 13</code>, <code>E = 14</code>, <code>F = 15</code></p>
+</blockquote>
+<p><strong>Example</strong>:<br><code>(2A5)₁₆</code><br>→ <code>A = 10</code><br>→ <code>5 * A = 5 * 10 = 50</code> 
+this is wrong way to do.</p>
+<hr>
+<h2>Relationship Between Number Systems</h2>
+<h3>1. Any Base to Decimal</h3>
+<p><strong>Common Rule</strong> (Binary, Octal, Hex → Decimal):<br>Start from right to left, multiply each digit by base^position, and sum the results.</p>
+<h4>Decimal Example</h4>
+<p><code>(25)₁₀ = 2 * 10¹ + 5 * 10⁰ = 20 + 5 = 25</code></p>
+<h4>Binary to Decimal</h4>
+<p><code>(101)₂ = 1 * 2² + 0 * 2¹ + 1 * 2⁰ = 4 + 0 + 1 = 5</code></p>
+<h4>Octal to Decimal</h4>
+<p><code>(128)₈ = 1 * 8² + 2 * 8¹ + 8 * 8⁰ = 64 + 16 + 5 = 85</code></p>
+<h4>Hexadecimal to Decimal</h4>
+<p><code>(2A4.8)₁₆ = 2 * 16² + A * 16¹ + 4 * 16⁰ + 8 * 16⁻¹</code><br><code>= 2 * 256 + 10 * 16 + 4 + 0.5 = 512 + 160 + 4 + 0.5 = 676.5</code></p>
+<hr>
+<h3>Deep Dive: Why Do We Multiply Digits by Base^Power?</h3>
+<p>Every digit&#39;s value is determined by its position in the number. The rightmost digit is the least significant (base⁰), and as we move left, the power of the base increases. This rule applies to all number systems.</p>
+<hr>
+<h3>2. Decimal to Binary</h3>
+<p><strong>Step 1</strong>: Convert the integer part using division and remainders.<br><strong>Step 2</strong>: Convert the fractional part using multiplication.</p>
+<h4>Integer Part Example:</h4>
+<p>Convert <code>(25)₁₀</code> to binary:  </p>
+<pre><code>
+25 / 2 = 12 remainder 1
+12 / 2 = 6  remainder 0
+6 / 2  = 3  remainder 0
+3 / 2  = 1  remainder 1
+1 / 2  = 0  remainder 1
+Binary = 11001₂
+</code></pre>
+<h4>Fractional Part Example:</h4>
+<p>Convert <code>.35</code> to binary:  </p>
+<pre><code>
+.35 \* 2 = 0.70 → 0
+.70 \* 2 = 1.40 → 1
+.40 \* 2 = 0.80 → 0
+.80 \* 2 = 1.60 → 1
+.60 \* 2 = 1.20 → 1
+.20 \* 2 = 0.40 → 0
+(Repeats from here...)
+
+Binary ≈ .010110… (Repeating)
+</code></pre>
+<p><strong>Exercise</strong>: Convert <code>.135</code> to binary.</p>
+<hr>
+<h3>3. Binary to Octal</h3>
+<ul>
+<li>Group <strong>3 bits</strong> from <strong>right to left</strong> (for integers) and <strong>left to right</strong> (for fractions).</li>
+</ul>
+<p><strong>Example</strong>:<br><code>(10101101)₂ = 010 101 101</code> → <code>(255)₈</code></p>
+<p><strong>With Fraction</strong>:<br><code>(10101101.100)₂</code> → Group:</p>
+<ul>
+<li>Integer: <code>010 101 101</code> → <code>255</code></li>
+<li>Fraction: <code>100</code> → <code>4</code><br>Result: <code>(255.4)₈</code></li>
+</ul>
+<hr>
+<h3>4. Octal to Binary</h3>
+<ul>
+<li>Reverse the process: convert each digit to <strong>3-bit binary</strong>.</li>
+</ul>
+<p><strong>Example</strong>:<br><code>(255.4)₈ = (010101101.100)₂</code></p>
+<hr>
+<h3>5. Binary to Hexadecimal</h3>
+<ul>
+<li>Group <strong>4 bits</strong> for conversion.</li>
+</ul>
+<p><strong>Example</strong>:<br><code>(10101111.110101)₂</code><br>Group:  </p>
+<ul>
+<li><code>1010 = A</code>, <code>1111 = F</code>  </li>
+<li>Fraction: <code>1101 = D</code>, <code>0100 = 4</code><br>Result: <code>(AF.D4)₁₆</code></li>
+</ul>
+<hr>
+<h3>Conversion Graph (Universal Rule)</h3>
+<pre><code>
+\[ANY BASE] ↔ \[BINARY] ↔ \[ANY BASE]
+</code></pre>
+<ul>
+<li>Decimal to Binary → Divide by 2  </li>
+<li>Octal to Binary → Convert each digit to 3 bits  </li>
+<li>Hexadecimal to Binary → Convert each digit to 4 bits</li>
+</ul>
+<hr>
+<h3>Shortcut Tricks</h3>
+<h4>Binary to Decimal</h4>
+<p><strong>Example</strong>:<br><code>(101)₂</code>  </p>
+<pre><code>
+1 0 1
+↓ ↓ ↓
+4 2 1 → Total = 5
+</code></pre>
+<p>Only add positions with 1’s.</p>
+<h4>Decimal to Binary</h4>
+<p>Visualize with place values:  </p>
+<pre><code>
+64 32 16 8 4 2 1
+→ 25 = 16 + 8 + 1 → 1 1 0 0 1 = (11001)₂
+</code></pre>
+<p>Another Example:<br><code>(47)₁₀ = (101111)₂</code></p>
+<hr>
+<blockquote>
+<p>⚠️ Note: All rules are consistent for conversions between Binary, Octal, Decimal, and Hexadecimal.</p>
+</blockquote>
+<hr>
+<p><strong>End of Class Notes</strong></p>
+<pre><code>
+---
+</code></pre>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

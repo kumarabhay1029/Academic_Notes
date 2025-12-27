@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Introduction To Programming - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Introduction To Programming</h1><p class="subject-tag">MCS201</p></div></header><main class="container"><article class="note-content"><h3>MCS201 (Programming in C and Python)</h3>
+<hr>
+<h2>What is Programming?</h2>
+<ul>
+<li>A set of instructions to solve a particular problem.</li>
+</ul>
+<h3>What is an instruction?</h3>
+<ol>
+<li>Any type of instruction provided to a computer to solve that problem.</li>
+<li>Inputs that we provide to the computer.</li>
+</ol>
+<hr>
+<h2>Why Programming is Required?</h2>
+<ul>
+<li>We need programming to solve specific problems.</li>
+</ul>
+<h3>What is a problem?</h3>
+<ol>
+<li>A task we need to solve.</li>
+<li>A situation that needs a solution.</li>
+</ol>
+<hr>
+<h2>Technique to Solve a Problem</h2>
+<ol>
+<li>Understand the problem – What is the problem?</li>
+<li>What should be the output/result?<ul>
+<li><em>(In programming, we must first understand the solution, then solve it using programming.)</em></li>
+</ul>
+</li>
+<li>What are the basic requirements for the result?</li>
+<li>Arrange the requirements in sequence to solve the problem.</li>
+</ol>
+<p><strong>Example – Add two numbers</strong>  </p>
+<ul>
+<li>Basic requirement: Two numbers.  </li>
+<li>Arrangement: If numbers are (a, b), then: <code>c = a + b</code>.  </li>
+<li>Result is obtained after calculating this.</li>
+</ul>
+<hr>
+<h2>As per Book – Problem Solving Techniques</h2>
+<ol>
+<li>Problem definition phase (understand the problem)</li>
+<li>Getting started with the problem (take immediate action)</li>
+<li>Use of specific examples (from past experience)</li>
+<li>Find similarities with other problems</li>
+</ol>
+<p>These are the steps for solving a problem. In programming, we use:</p>
+<ul>
+<li><strong>Algorithm</strong></li>
+<li><strong>Flowchart</strong></li>
+</ul>
+<hr>
+<h2>Basics of Algorithm &amp; Flowchart (Important for Exam: 10–15 marks)</h2>
+<h3>What is an Algorithm?</h3>
+<ul>
+<li>A step-by-step procedure to solve any kind of problem.</li>
+</ul>
+<h3>What is a Flowchart?</h3>
+<ul>
+<li>A pictorial/graphical representation of an algorithm.</li>
+</ul>
+<hr>
+<h2>Algorithm: Addition of Two Numbers</h2>
+<ol>
+<li>Start  </li>
+<li>Enter two numbers (a, b)  </li>
+<li>Add both numbers → <code>result = a + b</code>  </li>
+<li>Print the result  </li>
+<li>Stop</li>
+</ol>
+<hr>
+<h2>Flowchart Symbols:</h2>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Oval</td>
+<td>Start/Stop</td>
+</tr>
+<tr>
+<td>Parallelogram</td>
+<td>Input/Output</td>
+</tr>
+<tr>
+<td>Rectangle</td>
+<td>Process</td>
+</tr>
+<tr>
+<td>Diamond</td>
+<td>Decision Making</td>
+</tr>
+<tr>
+<td>Arrow</td>
+<td>Flow of Direction</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Flowchart: Sum of Two Numbers</h2>
+<pre><code>[Start] (oval)
+   |
+   v
+[Input A] (parallelogram)
+   |
+   v
+[Input B] (parallelogram)
+   |
+   v
+[SUM = A + B] (rectangle)
+   |
+   v
+[Display SUM] (parallelogram)
+   |
+   v
+[End] (oval)
+</code></pre>
+<p><em>Note: If the flowchart goes to the next page, use annotation symbols.</em></p>
+<hr>
+<h2>Algorithm: Print 1 to 10</h2>
+<ol>
+<li>Start  </li>
+<li>Initialize <code>st = 1</code>, <code>end = 10</code>  </li>
+<li>Print <code>st</code>  </li>
+<li>Increment <code>st</code> by 1  </li>
+<li>If <code>st &lt;= end</code>, repeat steps 3–4  </li>
+<li>Stop</li>
+</ol>
+<hr>
+<h2>Flowchart: Print 1 to 10</h2>
+<pre><code>[Start]
+   |
+   v
+[st = 1, end = 10]
+   |
+   v
+[Print st] &lt;-------
+   |              |
+   v              |
+[st = st + 1]     |
+   |              |
+   v              |
+[st &lt;= end] ------|
+   |
+   v
+[Stop]
+</code></pre>
+<hr>
+<h2>Features of Algorithm</h2>
+<ol>
+<li>Input  </li>
+<li>Output  </li>
+<li>Definiteness  </li>
+<li>Finiteness  </li>
+<li>Effectiveness  </li>
+<li>Correctness</li>
+</ol>
+<hr>
+<h2>Homework:</h2>
+<h3>1. Algorithm: Factorial of a Number</h3>
+<p><strong>What is factorial?</strong>  </p>
+<ul>
+<li>Denoted as <code>n!</code>  </li>
+<li>Formula: <code>n! = n × (n-1) × (n-2) × ... × 1</code></li>
+</ul>
+<p>Example:  </p>
+<pre><code>n = 5  
+f = 1  
+f = f * 5 = 5  
+f = 5 * 4 = 20  
+f = 20 * 3 = 60  
+f = 60 * 2 = 120  
+f = 120 * 1 = 120  
+</code></pre>
+<h3>2. Algorithm: Check if Number is Prime</h3>
+<p><strong>Logic:</strong>  </p>
+<ul>
+<li>Let <code>n = 5</code>  </li>
+<li>Check divisibility from 2 to <code>n/2</code>  </li>
+<li>If divisible, it’s not prime. Else, it is.</li>
+</ul>
+<hr>
+<h2>Problem-Solving Approaches:</h2>
+<h3>1. Top-Down Design</h3>
+<ul>
+<li>Break the complex problem into sub-problems:</li>
+</ul>
+<pre><code>  COMPLEX PROBLEM
+   /     |     \
+ [S1]  [S2]   [S3]
+ / \    / \    / \
+</code></pre>
+<ul>
+<li>Combine solutions of sub-problems for the final answer.</li>
+</ul>
+<h3>2. Bottom-Up Design <em>(Dynamic Programming/Greedy – Out of Syllabus)</em></h3>
+<hr>
+<h2>Question: What is a Programming Language?</h2>
+<ul>
+<li>Languages used to write programs.</li>
+</ul>
+<p><strong>Types:</strong></p>
+<ul>
+<li><strong>High-Level Language:</strong> Requires translator (compiler/interpreter)</li>
+<li><strong>Low-Level Language:</strong> Directly executed by machine</li>
+</ul>
+<hr>
+<h2>Between User and Computer Communication:</h2>
+<ol>
+<li><strong>Linker</strong> – Links code to the required libraries  </li>
+<li><strong>Loader</strong> – Allocates memory dynamically for program execution</li>
+</ol>
+<hr>
+<h2>History of C Programming</h2>
+<ol>
+<li>Developed by <strong>Dennis Ritchie</strong> in <strong>1972</strong> at <strong>AT&amp;T Labs (USA)</strong>  </li>
+<li>Evolved from language <strong>B</strong>  </li>
+<li>Considered a <strong>mid-level language</strong>  <ul>
+<li>Works between <strong>OS</strong> and <strong>application layers</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>What is an Error?</h2>
+<ol>
+<li>Anything that is <strong>not acceptable</strong> in a program  </li>
+<li>Violates programming rules or grammar  </li>
+<li>Prevents the program from compiling/executing</li>
+</ol>
+<hr>
+<h2>Homework:</h2>
+<ul>
+<li>Read about <strong>Linker Error</strong> and <strong>Loader Error</strong></li>
+</ul>
+<hr>
+<h3>✅ UNIT - 1 COMPLETED</h3>
+<p><strong>Key Notes Recap:</strong></p>
+<ul>
+<li>How can we do programming? – ✅ CLEARED  </li>
+<li>What are the fundamentals of programming? – ✅ CLEARED  </li>
+<li>Why do we need programming? – ✅ CLEARED</li>
+</ul>
+<pre><code>
+Let me know if you&#39;d like this as a PDF or downloadable file too!
+</code></pre>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

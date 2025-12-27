@@ -50,6 +50,15 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
+      
+      - name: Push build to repository
+        if: always()
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add dist/
+          git commit -m "Auto-build: Generated site from markdown" || echo "No changes to commit"
+          git push origin main || echo "Push failed (no new commits)"
   
   deploy:
     needs: build

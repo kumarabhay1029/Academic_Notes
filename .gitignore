@@ -2,9 +2,6 @@
 node_modules/
 package-lock.json
 
-# Build output
-dist/
-
 # OS files
 .DS_Store
 Thumbs.db
@@ -18,3 +15,7 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Temp files
+scripts/generate-site-temp.js
+*.tmp

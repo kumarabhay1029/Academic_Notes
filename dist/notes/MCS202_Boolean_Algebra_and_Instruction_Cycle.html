@@ -1,0 +1,741 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Boolean Algebra and Instruction Cycle - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Boolean Algebra and Instruction Cycle</h1><p class="subject-tag">MCS202</p></div></header><main class="container"><article class="note-content"><h1>📝 MCS202: Instruction Cycle &amp; Boolean Algebra – Revision Notes</h1>
+<h1>📚 Table of Contents – MCS202: Instruction Cycle &amp; Boolean Algebra</h1>
+<ol>
+<li><p><a href="#1%EF%B8%8F%E2%83%A3-instruction-cycle">Instruction Cycle</a></p>
+<ul>
+<li><a href="#what-is-instruction-cycle">What is Instruction Cycle?</a></li>
+<li><a href="#representing-via-sequences">Representing via Sequences</a></li>
+<li><a href="#definition-of-instruction-cycle">Definition of Instruction Cycle</a></li>
+<li><a href="#phases-of-instruction-cycle">Phases of Instruction Cycle</a></li>
+<li><a href="#flowchart-representation">Flowchart Representation</a></li>
+</ul>
+</li>
+<li><p><a href="#2%EF%B8%8F%E2%83%A3-boolean-algebra">Boolean Algebra</a></p>
+<ul>
+<li><a href="#boolean-variable">Boolean Variable</a></li>
+<li><a href="#new-concept-truth-table">Truth Table</a><ul>
+<li><a href="#1-taking-one-variable">One Variable</a></li>
+<li><a href="#2-taking-two-variables">Two Variables</a></li>
+<li><a href="#3-taking-three-variables">Three Variables</a></li>
+<li><a href="#4-taking-four-variables">Four Variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#3%EF%B8%8F%E2%83%A3-boolean-operations">Boolean Operations</a></p>
+<ul>
+<li><a href="#basic-operations">Basic Operations</a><ul>
+<li><a href="#1-and-operation">AND Operation</a></li>
+<li><a href="#2-or-operation">OR Operation</a></li>
+<li><a href="#3-not-operation">NOT Operation</a></li>
+</ul>
+</li>
+<li><a href="#non-basic-operations">Non Basic Operations</a><ul>
+<li><a href="#1-nand-operation">NAND Operation</a></li>
+<li><a href="#2-nor-operation">NOR Operation</a></li>
+<li><a href="#exclusive-xor">Exclusive XOR</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#4%EF%B8%8F%E2%83%A3-properties">Properties</a></p>
+</li>
+<li><p><a href="#5%EF%B8%8F%E2%83%A3-gates">Gates</a></p>
+<ul>
+<li><a href="#1-and-gate">AND Gate</a></li>
+<li><a href="#2-or-gate">OR Gate</a></li>
+<li><a href="#3-not-gate">NOT Gate</a></li>
+</ul>
+</li>
+<li><p><a href="#6%EF%B8%8F%E2%83%A3-boolean-expression">Boolean Expression</a></p>
+<ul>
+<li><a href="#sop-form-sum-of-product">SOP Form (Sum of Product)</a></li>
+<li><a href="#pos-form-product-of-sum">POS Form (Product of Sum)</a></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>1️⃣ Instruction Cycle</h2>
+<h3>What is Instruction Cycle?</h3>
+<p>It is a set of phases from the creation of instructions up to its termination throughout the execution.</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1e3cowrbL94HFLVIBoo25zL7_OSUHwACG" alt="Opcode and Operand"></p>
+<h4>Representing via Sequences</h4>
+<p>Cycle means sequential steps.<br>For example: life cycle of a person.</p>
+<h4>Definition of INSTRUCTION cycle</h4>
+<p>It is a set of activity or phases that starts from creation of instruction, to the termination will perform that become instruction cycle.</p>
+<h4>Phases of Instruction Cycle</h4>
+<ol>
+<li><strong>Calculate address of the instruction</strong></li>
+<li><strong>Fetch the instruction</strong></li>
+<li><strong>Decode the Opcodes</strong><ul>
+<li><em>Explanation of phase 3:</em><br>Instruction = add R1, R2.<br>R1 &amp; R2 are operands and Add is opcode.<ul>
+<li>Operation code - coded form of the operation.</li>
+<li>Operands - it can be data value or register name. These two are names of memory location where data need to fetch for operation.</li>
+<li><em>Computer doesn&#39;t understand &#39;add&#39;, so computer decodes the operation.</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Calculate the address of operands</strong></li>
+<li><strong>Fetch the operands</strong></li>
+<li><strong>Perform the operation</strong></li>
+<li><strong>Calculate the address to store the result operand</strong></li>
+<li><strong>Store the result</strong></li>
+</ol>
+<p><img src="https://drive.google.com/uc?export=view&id=1BhITgyekM87CuI2QxKPW93kbQgungw5Y" alt="Instruction Cycle"></p>
+<hr>
+<h3>Flowchart Representation</h3>
+<p><em>Representing Instruction cycle via Flowchart.</em><br>Make a flowchart basis of instruction cycle which is given below or see image.</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1M7SZYbEqEMVArqNevW4OOIElW9-CHvuL" alt="Flowchart of Phases"></p>
+<hr>
+<h2>2️⃣ Boolean Algebra</h2>
+<p>Algebra based on two symbols – 0, 1</p>
+<ul>
+<li>0 → False</li>
+<li>1 → True</li>
+</ul>
+<hr>
+<h3>Boolean Variable</h3>
+<p>A boolean variable may take value 0 (sometimes) or 1 (sometimes true or false).</p>
+<p>Let x is Boolean variable then it will store a value 0 or 1.</p>
+<hr>
+<h3>New Concept: Truth Table</h3>
+<h4>1. Taking one variable</h4>
+<p>x → 0, 1</p>
+<p>If number of variable increases then total combination will be 2ⁿ, where 2 indicates number of symbols and n indicates number of variables.</p>
+<ul>
+<li>Total number of combinations = 2ⁿ</li>
+<li>2 raised to the power 1 = 2</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>Decimal Equivalent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>0 → False</li>
+<li>1 → True</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>F</th>
+<th>T</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td>✔</td>
+</tr>
+</tbody></table>
+<p><img src="https://drive.google.com/uc?export=view&id=14JeQ6Kt1ev0RWk858cXfC0kkeu_Wx6ws" alt="Truth Table Introduction"></p>
+<hr>
+<h4>2. Taking two variables</h4>
+<p>If x and y then total number of combination = 2ⁿ = 2² = 4</p>
+<table>
+<thead>
+<tr>
+<th>Decimal eq</th>
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>2² = 4; 4/2 = 2 for x&#39;s possibility, 2/2 = 1 for y&#39;s possibility.</li>
+</ul>
+<p><img src="https://drive.google.com/uc?export=view&id=1Zin_E-5UxNk1HHQwhIvlNbLNZ70cD_uu" alt="Truth Table for 2 Variables"></p>
+<hr>
+<h4>3. Taking three variables</h4>
+<table>
+<thead>
+<tr>
+<th>Decimal eq</th>
+<th>x</th>
+<th>y</th>
+<th>z</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>2³ = 8; 8/2 = 4 for x&#39;s possibility, 4/2 = 2 for y&#39;s possibility, 2/1 = 1 for z&#39;s possibility.</li>
+</ul>
+<p><img src="https://drive.google.com/uc?export=view&id=12-WgHEWLuc1bYZ8iD1xDoJ-KzsGqxXFQ" alt="Truth Table for 3 Variables"></p>
+<hr>
+<h4>4. Taking four variables</h4>
+<table>
+<thead>
+<tr>
+<th>Decimal eq</th>
+<th>x</th>
+<th>y</th>
+<th>z</th>
+<th>w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>13</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>14</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>15</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>2⁴ = 16; 16/2 = 8 for x&#39;s possibility, 8/2 = 4 for y&#39;s possibility, 4/2 = 2 for z&#39;s possibility, 2/2 = 1 for w&#39;s possibility.</li>
+</ul>
+<p><img src="https://drive.google.com/uc?export=view&id=1jhtk4ZJCMrQ5GvNXA4FAKM86UYlAOEY9" alt="Truth Table for 4 Variables"></p>
+<hr>
+<h2>3️⃣ Boolean Operations</h2>
+<h3>Basic Operations</h3>
+<h4>1. AND Operation</h4>
+<ul>
+<li><p>Representation:</p>
+<ul>
+<li>A AND B</li>
+<li>A.B</li>
+<li>A ∧ B</li>
+<li>(A, B are operands)</li>
+</ul>
+</li>
+<li><p>Shortcut trick:</p>
+<ul>
+<li>Output → Minimum value (compare in A.B)</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A.B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p><img src="https://drive.google.com/uc?export=view&id=1DC9OXulLFTJIc0XTrivCyvrelUCD2Dyz" alt="Shortcut Trick for AND"></p>
+<hr>
+<h4>2. OR Operation</h4>
+<ul>
+<li><p>Representation:</p>
+<ul>
+<li>A OR B</li>
+<li>A + B</li>
+<li>A ∨ B</li>
+</ul>
+</li>
+<li><p>Shortcut trick:</p>
+<ul>
+<li>Output → Maximum value</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A+B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p><img src="https://drive.google.com/uc?export=view&id=16ovAOHz5AzkubMX5fR5fwlLsn-pd19a7" alt="Trick for OR"></p>
+<hr>
+<h4>3. NOT Operation</h4>
+<ul>
+<li><p>Representation:</p>
+<ul>
+<li>NOT A</li>
+<li>Ᾱ</li>
+<li>~A</li>
+<li>7A</li>
+</ul>
+</li>
+<li><p>Output: Complement value</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>Ᾱ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p><img src="https://drive.google.com/uc?export=view&id=1FxKWVjQzCpomnQxZqLjQu8ipvlh8HHXK" alt="NOT Operation"></p>
+<hr>
+<h3>Non Basic Operations</h3>
+<p>Non-basic operations are made of basic operations.</p>
+<h4>1. NAND Operation</h4>
+<ul>
+<li><p>Combination of NOT operation + AND operation</p>
+</li>
+<li><p><em>Process: Find AND operation and perform NOT Operation on AND operation.</em></p>
+</li>
+<li><p>Representation:</p>
+<ul>
+<li>A NAND B</li>
+<li>A.B (bar at top)</li>
+<li>7(A ∧ B)</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A.B</th>
+<th>A.B (bar)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p><img src="https://drive.google.com/uc?export=view&id=1cegEEZatIuSw2JPnxu3Cjs31xoSs5yEk" alt="NAND Operation"></p>
+<hr>
+<h4>2. NOR Operation</h4>
+<ul>
+<li>Representation:<ul>
+<li>A NOR B</li>
+<li>A + B (bar at top)</li>
+<li>7(A v B)</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A+B</th>
+<th>A+B (bar)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p><img src="https://drive.google.com/uc?export=view&id=1J1J1eF1fsMznX8x02KxYReW46QLtgHbK" alt="NOR Operation"></p>
+<hr>
+<h4>3. Type of OR Operation: Inclusive OR &amp; Exclusive XOR</h4>
+<ul>
+<li><strong>Inclusive OR</strong> (Default OR)</li>
+<li><strong>Exclusive XOR</strong></li>
+</ul>
+<p><strong>Exclusive XOR</strong></p>
+<ul>
+<li>Representation:<ul>
+<li>A XOR B</li>
+<li>A +(circle around +) B</li>
+<li>A (upside down triangle) B</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A XOR B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4️⃣ Properties</h2>
+<ol>
+<li><p><strong>Commutative Law</strong></p>
+<ul>
+<li>A.B = B.A</li>
+<li>A+B = B+A</li>
+</ul>
+</li>
+<li><p><strong>Associative Law</strong></p>
+<ul>
+<li>(A+B) + C = A + (B+C)</li>
+<li>(A.B).C = A.(B.C)</li>
+</ul>
+</li>
+<li><p><strong>Distributive Law</strong></p>
+<ul>
+<li>A.(B+C) = A.B + A.C</li>
+<li>A + (B.C) = (A+B).(A+C)</li>
+</ul>
+</li>
+<li><p><strong>De Morgan&#39;s Law</strong></p>
+<ul>
+<li>(A+B) (bar at top) = A(bar).B(bar)</li>
+<li>(A.B) (bar at top) = A(bar) + B(bar)</li>
+</ul>
+</li>
+<li><p><strong>Double Complement Law</strong></p>
+<ul>
+<li>(A (bar bar)) = A</li>
+</ul>
+</li>
+<li><p><strong>Identity Laws</strong></p>
+<ul>
+<li>A.0 = 0</li>
+<li>A.1 = A</li>
+<li>A + 1 = 1</li>
+<li>A.A = A</li>
+<li>A + A = A</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>5️⃣ Gates</h2>
+<h3>What are gates?</h3>
+<p>Diagrammatically representation of boolean operation.</p>
+<h3>Basic Gates</h3>
+<ol>
+<li><strong>AND Gate</strong></li>
+<li><strong>OR Gate</strong></li>
+<li><strong>NOT Gate</strong></li>
+</ol>
+<hr>
+<h4>1. AND Gate</h4>
+<p>Representation:</p>
+<pre><code>      _____
+A ---|     \
+     |      |------ A.B
+B ---|_____/
+</code></pre>
+<hr>
+<h4>2. OR Gate</h4>
+<p>Representation:</p>
+<pre><code>A ──\
+         )─── A + B
+B ──/
+</code></pre>
+<hr>
+<h4>3. NOT Gate</h4>
+<p>Representation:</p>
+<pre><code>A ───|⊝&gt;── A(bar)
+</code></pre>
+<p><img src="https://drive.google.com/uc?export=view&id=1h09DQzsoN1AIAJBniL1T598L62NqMaBG" alt="AND ,  Or gate"></p>
+<p><img src="https://drive.google.com/uc?export=view&id=12MH2cfgJadYJjumJjrtLr-ec1ZULMzbZ" alt="My Image"></p>
+<hr>
+<h2>6️⃣ Boolean Expression</h2>
+<h3>SOP Form (Sum of Product)</h3>
+<h3>POS Form (Product of Sum)</h3>
+<table>
+<thead>
+<tr>
+<th>SOP form</th>
+<th>POS form</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F = A.B + A(bar).B</td>
+<td>F = (A+B).(A(bar)+B(bar))</td>
+</tr>
+<tr>
+<td>(sum of product)</td>
+<td>(product of sum)</td>
+</tr>
+</tbody></table>
+<hr>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

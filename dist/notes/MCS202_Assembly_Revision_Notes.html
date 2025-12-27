@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Assembly Revision Notes - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Assembly Revision Notes</h1><p class="subject-tag">MCS202</p></div></header><main class="container"><article class="note-content"><h1>MCS-202 Computer Organisation: Assembly Language Core Concepts 🚀</h1>
+<hr>
+<h2>📚 Learning Objectives</h2>
+<ul>
+<li>Understand the basics of assembly language and its role in computer organisation.</li>
+<li>Identify and explain key instructions: <code>ADD</code>, <code>SUB</code>, <code>LOAD</code>, <code>STORE</code>, <code>BEQ</code>, <code>J</code>.</li>
+<li>Trace control flow and memory operations in sample programs.</li>
+<li>Build strong foundations for further study (like pipelining and hazards).</li>
+</ul>
+<hr>
+<h2>1️⃣ What is Assembly Language? 🖥️</h2>
+<ul>
+<li><strong>Definition:</strong><br>Assembly language is a low-level programming language that closely mirrors the instructions executed by the CPU.</li>
+<li><strong>Purpose:</strong>  <ul>
+<li>Enables direct control over hardware.</li>
+<li>Essential for understanding how software interacts with hardware.</li>
+<li>Used in systems programming, embedded systems, and performance-critical applications.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>2️⃣ Register vs. Memory: The Basics 🧠</h2>
+<ul>
+<li><strong>Registers:</strong><br>Small, fast storage locations inside the CPU. Used for calculations and temporary data.</li>
+<li><strong>Memory (RAM):</strong><br>Larger but slower; used for storing programs and data longer-term.</li>
+<li><strong>Why move data?</strong><br>The CPU can only operate on data in registers, so we use <code>LOAD</code> and <code>STORE</code> instructions to transfer data between memory and registers.</li>
+</ul>
+<hr>
+<h2>3️⃣ Key Assembly Instructions 🔑</h2>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ADD</code></td>
+<td>Add two registers, store result in a register</td>
+<td><code>ADD R3, R1, R2</code></td>
+</tr>
+<tr>
+<td><code>SUB</code></td>
+<td>Subtract one register from another</td>
+<td><code>SUB R3, R1, R2</code></td>
+</tr>
+<tr>
+<td><code>LOAD</code></td>
+<td>Load data from memory to register</td>
+<td><code>LOAD R1, 0(R2)</code></td>
+</tr>
+<tr>
+<td><code>STORE</code></td>
+<td>Store data from register to memory</td>
+<td><code>STORE R1, 4(R2)</code></td>
+</tr>
+<tr>
+<td><code>BEQ</code></td>
+<td>Branch if two registers are equal</td>
+<td><code>BEQ R1, R2, LABEL</code></td>
+</tr>
+<tr>
+<td><code>J</code></td>
+<td>Unconditional jump to label</td>
+<td><code>J LABEL</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4️⃣ Detailed Concepts</h2>
+<h3>A. LOAD and STORE: Moving Data 🗄️</h3>
+<h4><strong>LOAD</strong></h4>
+<ul>
+<li><strong>Syntax:</strong> <code>LOAD reg, offset(baseReg)</code></li>
+<li><strong>Action:</strong> Copies data from memory address <code>(baseReg + offset)</code> to <code>reg</code>.</li>
+<li><strong>Example:</strong>  <pre><code>LOAD R1, 0(R2)   # R1 gets value from address in R2
+</code></pre>
+</li>
+</ul>
+<h4><strong>STORE</strong></h4>
+<ul>
+<li><strong>Syntax:</strong> <code>STORE reg, offset(baseReg)</code></li>
+<li><strong>Action:</strong> Copies data from <code>reg</code> to memory address <code>(baseReg + offset)</code>.</li>
+<li><strong>Example:</strong>  <pre><code>STORE R1, 4(R2)  # Store R1&#39;s value into address (R2 + 4)
+</code></pre>
+</li>
+</ul>
+<h4><strong>Visual Analogy:</strong></h4>
+<ul>
+<li>Registers = Desk 🧑‍💻 | Memory = Filing Cabinet 🗄️  <ul>
+<li><strong>LOAD:</strong> Take a file from the cabinet to your desk.</li>
+<li><strong>STORE:</strong> Put a file from your desk back in the cabinet.</li>
+</ul>
+</li>
+</ul>
+<h4><strong>Arrays &amp; Offsets:</strong></h4>
+<ul>
+<li>If R2 = 1000 (start of array), memory at 1000, 1004, 1008… holds array elements:<ul>
+<li><code>LOAD R1, 0(R2)</code> → R1 = first element.</li>
+<li><code>LOAD R1, 4(R2)</code> → R1 = second element.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>B. Control Flow: BEQ and J 🚦</h3>
+<h4><strong>BEQ (Branch if Equal)</strong></h4>
+<ul>
+<li><strong>Syntax:</strong> <code>BEQ R1, R2, LABEL</code></li>
+<li><strong>Action:</strong> If <code>R1 == R2</code>, jump to <code>LABEL</code>; else, continue.</li>
+<li><strong>Example:</strong>  <pre><code>BEQ R1, R2, MATCH
+</code></pre>
+</li>
+</ul>
+<h4><strong>J (Jump)</strong></h4>
+<ul>
+<li><strong>Syntax:</strong> <code>J LABEL</code></li>
+<li><strong>Action:</strong> Unconditionally jump to the instruction labeled <code>LABEL</code>.</li>
+<li><strong>Example:</strong>  <pre><code>J END
+</code></pre>
+</li>
+</ul>
+<h4><strong>Program Flow Example:</strong></h4>
+<pre><code class="language-assembly">BEQ R5, R6, MATCH
+ADD R7, R5, R6
+J   END
+
+MATCH:
+SUB R7, R5, R6
+
+END:
+# (End of program)
+</code></pre>
+<p><strong>If R5 == R6:</strong> <code>SUB</code> runs, R7 = R5 - R6<br><strong>If R5 ≠ R6:</strong> <code>ADD</code> runs, R7 = R5 + R6</p>
+<hr>
+<h2>5️⃣ Visual: Memory Addressing Example 🎨</h2>
+<pre><code>Memory (Lockers):
+
+Address:  1000      1004      1008      1012
+         +-----+   +-----+   +-----+   +-----+
+         |  10 |   |  20 |   |  30 |   |  40 |
+         +-----+   +-----+   +-----+   +-----+
+           ^         ^         ^         ^
+         0(R2)     4(R2)     8(R2)    12(R2)
+</code></pre>
+<hr>
+<h2>6️⃣ Practice Questions 💡</h2>
+<ol>
+<li><p><strong>What does this do if R2 = 200, Memory[204] = 17?</strong>  </p>
+<pre><code class="language-assembly">LOAD R3, 4(R2)
+</code></pre>
+<p><strong>Answer:</strong> Loads 17 into R3.</p>
+</li>
+<li><p><strong>If R1 = 5, R2 = 5, what happens here?</strong>  </p>
+<pre><code class="language-assembly">BEQ R1, R2, LABEL
+ADD R3, R1, R2
+LABEL:
+SUB R3, R1, R2
+</code></pre>
+<p><strong>Answer:</strong> <code>SUB</code> runs, R3 = 0; <code>ADD</code> is skipped.</p>
+</li>
+<li><p><strong>What does <code>STORE R4, 8(R5)</code> do?</strong><br><strong>Answer:</strong> Stores value from R4 into memory at address (R5 + 8).</p>
+</li>
+</ol>
+<hr>
+<h2>7️⃣ Quick Tips &amp; Memory Aids 📝</h2>
+<ul>
+<li><strong>Registers are like scratch paper 🗒️:</strong> Fast, but limited.</li>
+<li><strong>Memory is like a filing cabinet 🗄️:</strong> Lots of space, but slower.</li>
+<li><strong>Use LOAD/STORE to move data between them.</strong></li>
+<li><strong>Control flow (BEQ/J):</strong> Like road signs telling your program where to go.</li>
+</ul>
+<hr>
+<h2>⭐ Summary</h2>
+<ul>
+<li>Assembly language brings you closest to how computers “think.”</li>
+<li><strong>LOAD/STORE</strong> move data; <strong>BEQ/J</strong> control the program’s path.</li>
+<li>Mastering these basics builds a strong foundation for understanding more complex computer architecture topics!</li>
+</ul>
+<hr>
+<p><strong>Best of luck with your revision! You’re building real computer scientist skills—keep it up!</strong> 🌟🧠✨</p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

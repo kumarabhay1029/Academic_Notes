@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Pipelining and Hazards Notes - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Pipelining and Hazards Notes</h1><p class="subject-tag">MCS202</p></div></header><main class="container"><article class="note-content"><h1>📚 MCS-202: Computer Organisation</h1>
+<h2>🏁 Chapter: Pipelining &amp; Pipeline Hazards</h2>
+<hr>
+<h2>🎯 Learning Objectives</h2>
+<ul>
+<li>Understand the concept of pipelining in CPUs.</li>
+<li>Analyze pipeline performance and calculate speedup.</li>
+<li>Identify and explain different types of pipeline hazards.</li>
+<li>Explore solutions to pipeline hazards.</li>
+</ul>
+<hr>
+<h2>⚡ 1. What is Pipelining?</h2>
+<p>Pipelining is a technique in computer architecture where multiple instruction steps are overlapped in execution.<br>Just like an assembly line in a factory, the CPU executes different stages of multiple instructions at the same time.</p>
+<h3>🏭 Analogy: Laundry Assembly Line</h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Laundry Example</th>
+<th>CPU Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Stage 1</td>
+<td>Washing</td>
+<td>Instruction Fetch</td>
+</tr>
+<tr>
+<td>Stage 2</td>
+<td>Drying</td>
+<td>Instruction Decode</td>
+</tr>
+<tr>
+<td>Stage 3</td>
+<td>Folding</td>
+<td>Execute</td>
+</tr>
+</tbody></table>
+<ul>
+<li>As soon as one load is washed, it moves to drying, and a new load starts washing.  </li>
+<li>In CPUs, as soon as one instruction moves from fetch to decode, another begins fetching.</li>
+</ul>
+<hr>
+<h2>🛠️ 2. Pipelining Stages (Classic 5-Stage Pipeline)</h2>
+<ol>
+<li><strong>IF (Instruction Fetch):</strong> Retrieves instruction from memory.</li>
+<li><strong>ID (Instruction Decode):</strong> Decodes the instruction &amp; reads registers.</li>
+<li><strong>EX (Execute):</strong> Performs operation (ALU).</li>
+<li><strong>MEM (Memory Access):</strong> Reads/Writes memory if needed.</li>
+<li><strong>WB (Write Back):</strong> Writes result back to register.</li>
+</ol>
+<hr>
+<h2>⏱️ 3. Pipelining vs. Non-Pipelining</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Non-Pipelined</th>
+<th>Pipelined</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Execution</td>
+<td>One instruction at a time</td>
+<td>Multiple instructions in parallel</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>Slow</td>
+<td>Fast</td>
+</tr>
+<tr>
+<td>Resource Util.</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+</tbody></table>
+<h3>🧮 Example</h3>
+<ul>
+<li>5-stage pipeline, each stage = 1 clock cycle</li>
+<li>Execute 4 instructions:</li>
+</ul>
+<h4>Non-Pipelined:</h4>
+<ul>
+<li>Each instruction takes 5 cycles.</li>
+<li>Total = 4 × 5 = <strong>20 cycles</strong> ⏳</li>
+</ul>
+<h4>Pipelined:</h4>
+<ul>
+<li>Fill pipeline: 5 cycles (for first instruction)</li>
+<li>Then, each new instruction finishes every cycle.</li>
+<li>Total = 5 + (4-1) = <strong>8 cycles</strong> 🚀</li>
+</ul>
+<hr>
+<h2>📈 4. Pipeline Performance Calculation</h2>
+<p><strong>Speedup Formula:</strong></p>
+<p>[
+\text{Speedup} = \frac{\text{Non-pipelined time}}{\text{Pipelined time}}
+]</p>
+<p><em>Example:</em><br>[
+\text{Speedup} = \frac{20}{8} = 2.5 \times
+]</p>
+<hr>
+<h2>🚨 5. Pipeline Hazards</h2>
+<p>Pipeline hazards are problems that prevent the next instruction in the pipeline from executing during its designated clock cycle.</p>
+<h3>🧩 Types of Hazards</h3>
+<ol>
+<li><p><strong>Data Hazards</strong>  </p>
+<ul>
+<li>Occur when instructions depend on results of previous instructions.</li>
+<li><strong>Example:</strong>  <pre><code>LOAD R1, 0(R2)
+ADD  R3, R1, R4  // Needs R1 from previous instruction
+</code></pre>
+</li>
+<li>🛑 Solution: Forwarding, stalls, or hazard detection.</li>
+</ul>
+</li>
+<li><p><strong>Control Hazards</strong>  </p>
+<ul>
+<li>Occur due to branch instructions (jumps, conditional branches).</li>
+<li><strong>Example:</strong>  <pre><code>BEQ  R1, R2, LABEL
+</code></pre>
+</li>
+<li>🛑 Solution: Branch prediction, delayed branching.</li>
+</ul>
+</li>
+<li><p><strong>Structural Hazards</strong>  </p>
+<ul>
+<li>Occur when hardware resources are insufficient to handle all instructions in the pipeline.</li>
+<li><strong>Example:</strong> Both IF and MEM stages need memory access at the same time.</li>
+<li>🛑 Solution: Resource duplication, smart scheduling.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>🏗️ 6. Data Hazard Example (With Stalls)</h2>
+<table>
+<thead>
+<tr>
+<th>Clock</th>
+<th>LOAD (I1)</th>
+<th>ADD (I2)</th>
+<th>SUB (I3)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>IF</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>ID</td>
+<td>IF</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>EX</td>
+<td>ID</td>
+<td>IF</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MEM</td>
+<td><em>STALL</em></td>
+<td>ID</td>
+</tr>
+<tr>
+<td>5</td>
+<td>WB</td>
+<td><em>STALL</em></td>
+<td><em>STALL</em></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td>ID</td>
+<td><em>STALL</em></td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td>EX</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td>MEM</td>
+<td>EX</td>
+</tr>
+<tr>
+<td>9</td>
+<td></td>
+<td>WB</td>
+<td>MEM</td>
+</tr>
+<tr>
+<td>10</td>
+<td></td>
+<td></td>
+<td>WB</td>
+</tr>
+</tbody></table>
+<p><em>Stalls are inserted to resolve data hazards (when ADD and SUB need the value loaded by LOAD).</em></p>
+<hr>
+<h2>⏳ 7. Real-World Pipeline Timing Example</h2>
+<ul>
+<li>4-stage pipeline: IF (1ns), ID (1ns), EX (2ns), WB (1ns)</li>
+<li>Longest stage (EX) sets clock: 2ns per stage</li>
+<li>8 instructions, no hazards</li>
+</ul>
+<p><strong>Total time:</strong>  </p>
+<ul>
+<li>Fill pipeline: 4 × 2ns = 8ns  </li>
+<li>Remaining 7 instructions: 7 × 2ns = 14ns  </li>
+<li><strong>Total = 22ns</strong></li>
+</ul>
+<p><strong>Average per instruction:</strong><br>[
+22\text{ns} / 8 = 2.75\text{ns}
+]</p>
+<hr>
+<h2>🧠 8. Key Takeaways</h2>
+<ul>
+<li>Pipelining increases instruction throughput by overlapping stages.</li>
+<li>Hazards (data, control, structural) can disrupt pipeline flow.</li>
+<li>Solutions include forwarding, stalling, branch prediction, and resource duplication.</li>
+<li>Performance gain depends on how well hazards are managed.</li>
+</ul>
+<hr>
+<h2>💡 9. Tips &amp; Tricks</h2>
+<ul>
+<li>Visualize pipelines as assembly lines.</li>
+<li>Always check for dependencies between instructions.</li>
+<li>Understand how hazard solutions work (especially for exams!).</li>
+</ul>
+<hr>
+<h2>🎓 10. Practice &amp; Revision</h2>
+<ul>
+<li>Draw pipeline tables for given instruction sequences.</li>
+<li>Calculate speedup for different pipeline configurations.</li>
+<li>Identify hazards and suggest appropriate solutions.</li>
+</ul>
+<hr>
+<h2>🙋‍♂️ Questions? Doubts?</h2>
+<p>Ask in your group </p>
+<hr>
+<p><em>Keep practicing, and pipelining will become second nature! 🚀</em></p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

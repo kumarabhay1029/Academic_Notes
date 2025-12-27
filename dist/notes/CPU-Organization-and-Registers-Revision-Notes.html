@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>CPU Organization and Registers Revision Notes - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>CPU Organization and Registers Revision Notes</h1><p class="subject-tag">CPU-ORGANIZATION-AND-REGISTERS-REVISION-NOTES</p></div></header><main class="container"><article class="note-content"><h1>🧠 CPU Organization &amp; Registers — Detailed Revision Notes</h1>
+<hr>
+<h2>🎯 Learning Objectives</h2>
+<ul>
+<li>Understand the internal organization of the CPU.</li>
+<li>Identify and explain the roles of different registers.</li>
+<li>Visualize how registers, ALU, and control unit interact using a diagram.</li>
+</ul>
+<hr>
+<h2>🏗️ What is CPU Organization?</h2>
+<ul>
+<li><strong>Definition:</strong><br>CPU organization describes how the internal components of the CPU (ALU, CU, registers) are structured and interact to process instructions.</li>
+<li><strong>Key Components:</strong><ul>
+<li><strong>Arithmetic Logic Unit (ALU):</strong> Performs calculations and logic operations.</li>
+<li><strong>Control Unit (CU):</strong> Directs and coordinates all CPU operations.</li>
+<li><strong>Registers:</strong> Small, ultra-fast storage locations for immediate data and instructions.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>📦 Types of Registers &amp; Their Roles</h2>
+<table>
+<thead>
+<tr>
+<th>Register Type</th>
+<th>Purpose</th>
+<th>Analogy</th>
+<th>Example Name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Accumulator (ACC)</strong></td>
+<td>Holds results of arithmetic/logic operations</td>
+<td>Whiteboard for calculations</td>
+<td>ACC</td>
+</tr>
+<tr>
+<td><strong>General Purpose</strong></td>
+<td>Temporary storage for data and intermediate results</td>
+<td>Chef’s trays for ingredients</td>
+<td>R0, R1, AX</td>
+</tr>
+<tr>
+<td><strong>Program Counter</strong></td>
+<td>Holds address of the next instruction</td>
+<td>Bookmark in a book</td>
+<td>PC</td>
+</tr>
+<tr>
+<td><strong>Instruction Reg.</strong></td>
+<td>Holds the current instruction being executed</td>
+<td>Recipe card</td>
+<td>IR</td>
+</tr>
+<tr>
+<td><strong>Stack Pointer</strong></td>
+<td>Points to the top of the stack in memory</td>
+<td>Sticky note on plate stack</td>
+<td>SP</td>
+</tr>
+<tr>
+<td><strong>Status/Flag Reg.</strong></td>
+<td>Stores info about operation results (zero, carry, etc.)</td>
+<td>Dashboard indicator lights</td>
+<td>FLAGS/PSW</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔬 Deep Dive: Major Registers</h2>
+<h3>1️⃣ <strong>Accumulator (ACC)</strong></h3>
+<ul>
+<li><strong>Role:</strong> Primary register for all arithmetic and logic results.</li>
+<li><strong>Example:</strong> After addition, the sum goes to the ACC.</li>
+<li><strong>Analogy:</strong> Whiteboard for working out math before finalizing.</li>
+</ul>
+<hr>
+<h3>2️⃣ <strong>General Purpose Registers (GPRs)</strong></h3>
+<ul>
+<li><strong>Role:</strong> Hold data temporarily for calculations and instruction execution.</li>
+<li><strong>Example:</strong> R1 and R2 may hold values to be multiplied.</li>
+<li><strong>Analogy:</strong> Trays for holding ingredients before use.</li>
+</ul>
+<hr>
+<h3>3️⃣ <strong>Program Counter (PC)</strong></h3>
+<ul>
+<li><strong>Role:</strong> Keeps track of the address of the next instruction.</li>
+<li><strong>Example:</strong> After instruction at 1050, PC updates to 1051.</li>
+<li><strong>Analogy:</strong> Bookmark in your textbook.</li>
+</ul>
+<hr>
+<h3>4️⃣ <strong>Instruction Register (IR)</strong></h3>
+<ul>
+<li><strong>Role:</strong> Stores the instruction currently being decoded and executed.</li>
+<li><strong>Example:</strong> Holds &quot;ADD R1, R2&quot; during execution.</li>
+<li><strong>Analogy:</strong> Chef’s recipe card for today’s dish.</li>
+</ul>
+<hr>
+<h3>5️⃣ <strong>Stack Pointer (SP)</strong></h3>
+<ul>
+<li><strong>Role:</strong> Points to the top of the stack for temporary data and return addresses.</li>
+<li><strong>Example:</strong> Changes as data is pushed/popped in function calls.</li>
+<li><strong>Analogy:</strong> Sticky note marking the top plate in a stack.</li>
+</ul>
+<hr>
+<h3>6️⃣ <strong>Status/Flag Register (FLAGS/PSW)</strong></h3>
+<ul>
+<li><strong>Role:</strong> Records and displays operation results—zero, carry, sign, overflow, etc.</li>
+<li><strong>Example:</strong> Zero flag is set if the result of a subtraction is zero.</li>
+<li><strong>Analogy:</strong> Car dashboard lights signaling specific conditions.</li>
+</ul>
+<hr>
+<h2>🔁 How Registers Interact: The Instruction Cycle</h2>
+<ol>
+<li><strong>Fetch:</strong><br>PC provides address → instruction fetched from memory → loaded into IR.</li>
+<li><strong>Decode:</strong><br>CU decodes instruction in IR.</li>
+<li><strong>Execute:</strong><br>Data loaded into GPRs/ACC → ALU processes → result updates ACC/GPRs/FLAGS.</li>
+<li><strong>Store/Update:</strong><br>Results sent to memory/registers → PC updated for next instruction.</li>
+</ol>
+<hr>
+<h2>🖼️ Diagram: CPU Organization (Mermaid Syntax)</h2>
+<pre><code class="language-mermaid">flowchart LR
+    subgraph CPU [Central Processing Unit]
+        CU[Control Unit]
+        ALU[Arithmetic Logic Unit]
+        ACC[Accumulator]
+        GPR[General Purpose Registers&lt;br/&gt;(R0, R1, R2, ...)]
+        IR[Instruction Register]
+        PC[Program Counter]
+        SP[Stack Pointer]
+        FLAGS[Status/Flag Register]
+    end
+
+    subgraph Memory [Main Memory]
+    end
+
+    PC -- &quot;Next instruction address&quot; --&gt; Memory
+    Memory -- &quot;Fetch instruction&quot; --&gt; IR
+    IR -- &quot;Decoded instruction&quot; --&gt; CU
+    CU -- &quot;Sends control signals&quot; --&gt; ALU
+    CU -- &quot;Moves data/control signals&quot; --&gt; GPR
+    CU -- &quot;Updates&quot; --&gt; PC
+    CU -- &quot;Updates&quot; --&gt; SP
+    CU -- &quot;Updates&quot; --&gt; FLAGS
+    GPR -- &quot;Operands&quot; --&gt; ALU
+    ACC -- &quot;Operand/Result&quot; --&gt; ALU
+    ALU -- &quot;Result&quot; --&gt; ACC
+    ALU -- &quot;Updates status&quot; --&gt; FLAGS
+    ALU -- &quot;Result&quot; --&gt; GPR
+    SP -- &quot;Stack operations&quot; --&gt; Memory
+    GPR -- &quot;Data read/write&quot; --&gt; Memory
+</code></pre>
+<hr>
+<h2>📝 Quick Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Function</th>
+<th>Analogy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accumulator</td>
+<td>Arithmetic/logic results</td>
+<td>Whiteboard</td>
+</tr>
+<tr>
+<td>General Purpose</td>
+<td>Temporary data</td>
+<td>Ingredient trays</td>
+</tr>
+<tr>
+<td>Program Counter</td>
+<td>Next instruction address</td>
+<td>Bookmark</td>
+</tr>
+<tr>
+<td>Instruction Reg.</td>
+<td>Current instruction</td>
+<td>Recipe card</td>
+</tr>
+<tr>
+<td>Stack Pointer</td>
+<td>Top of stack</td>
+<td>Sticky note</td>
+</tr>
+<tr>
+<td>Status/Flag Reg.</td>
+<td>Operation result indicators</td>
+<td>Dashboard lights</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>💡 Key Takeaways</h2>
+<ul>
+<li>Registers are the CPU&#39;s fastest storage, enabling efficient instruction execution.</li>
+<li>Each register has a unique, crucial function in the instruction cycle.</li>
+<li>Understanding register roles and interactions is foundational for mastering computer organization.</li>
+</ul>
+<hr>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

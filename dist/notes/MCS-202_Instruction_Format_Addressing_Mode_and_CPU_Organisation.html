@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Instruction Format Addressing Mode and CPU Organisation - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Instruction Format Addressing Mode and CPU Organisation</h1><p class="subject-tag">MCS-202</p></div></header><main class="container"><article class="note-content"><h1>🖥️ MCS-202: Computer Organisation – Lecture Notes</h1>
+<h2>📅 Session Summary (2025-06-07)</h2>
+<hr>
+<h2>🎯 Learning Objectives</h2>
+<ul>
+<li>Grasp the concept of instruction formats and addressing modes.</li>
+<li>Understand CPU organisation, its components, and the instruction cycle.</li>
+<li>Identify types of instructions and their roles.</li>
+</ul>
+<hr>
+<h2>1️⃣ Instruction Formats &amp; Addressing Modes</h2>
+<h3>🧩 What is an Instruction Format?</h3>
+<p>An instruction format defines how each machine instruction is structured so the CPU knows:</p>
+<ul>
+<li><strong>Opcode:</strong> What action to perform.</li>
+<li><strong>Operands:</strong> Where to get the data (registers, memory, immediate).</li>
+<li><strong>Other fields:</strong> Like addressing mode or flags.</li>
+</ul>
+<blockquote>
+<p><strong>Analogy:</strong> Like a recipe card specifying what to cook, ingredients, and steps.</p>
+</blockquote>
+<h4>📝 Example:</h4>
+<pre><code class="language-text">+--------+---------+----------+
+| Opcode | Operand | Operand  |
++--------+---------+----------+
+</code></pre>
+<hr>
+<h3>📌 Addressing Modes Explained</h3>
+<p>Addressing modes tell the CPU <strong>where</strong> or <strong>how</strong> to find data for instructions.</p>
+<table>
+<thead>
+<tr>
+<th>Addressing Mode</th>
+<th>Example</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Immediate</td>
+<td><code>MOV A, #5</code></td>
+<td>Use value 5 directly in instruction</td>
+</tr>
+<tr>
+<td>Direct</td>
+<td><code>MOV A, [1000]</code></td>
+<td>Use value at memory address 1000</td>
+</tr>
+<tr>
+<td>Indirect</td>
+<td><code>MOV A, [R2]</code></td>
+<td>Use address stored in R2 to get the value</td>
+</tr>
+<tr>
+<td>Register</td>
+<td><code>MOV A, R2</code></td>
+<td>Use value from register R2</td>
+</tr>
+<tr>
+<td>Indexed</td>
+<td><code>MOV A, [R1+X]</code></td>
+<td>Use address R1 + X</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Diagram:</strong>  </p>
+<pre><code>+--------+------+-----+
+|  ADD   | R1   |  5  |
++--------+------+-----+
+</code></pre>
+</blockquote>
+<hr>
+<h2>2️⃣ CPU Organisation 🏛️</h2>
+<h3>🏗️ Main Components</h3>
+<ul>
+<li><strong>Arithmetic Logic Unit (ALU):</strong> Performs calculations &amp; logic.</li>
+<li><strong>Control Unit (CU):</strong> Directs operations, interprets instructions.</li>
+<li><strong>Registers:</strong> Superfast, tiny storage for temporary data.</li>
+<li><strong>Buses:</strong> Highways for data, address, and control signals.</li>
+</ul>
+<h4>📊 Diagram</h4>
+<pre><code>+-----------------------+
+|      Control Unit     |
++-----------------------+
+          |
+          v
++-------------------+   +-----------------+
+|      ALU          |&lt;-&gt;|    Registers    |
++-------------------+   +-----------------+
+          ^
+          |
++-------------------------+
+|         Buses           |
++-------------------------+
+</code></pre>
+<hr>
+<h3>🏷️ Types of Registers</h3>
+<ul>
+<li><strong>Program Counter (PC):</strong> Holds address of next instruction.</li>
+<li><strong>Instruction Register (IR):</strong> Holds the current instruction.</li>
+<li><strong>Accumulator (ACC):</strong> Stores intermediate results.</li>
+<li><strong>Memory Address Register (MAR):</strong> Holds memory addresses.</li>
+<li><strong>Memory Buffer Register (MBR/MDR):</strong> Temporarily holds data from/to memory.</li>
+<li><strong>Status/Flag Register:</strong> Stores operation results (zero, carry, etc.).</li>
+<li><strong>General Purpose Registers:</strong> Temporary data storage for programs.</li>
+</ul>
+<hr>
+<h2>3️⃣ The Instruction Cycle 🔄</h2>
+<h3>🕹️ Steps</h3>
+<ol>
+<li><strong>Fetch:</strong> Get the next instruction from memory (PC ➡️ IR).</li>
+<li><strong>Decode:</strong> CU interprets the instruction and identifies the operation.</li>
+<li><strong>Execute:</strong> ALU or CU performs the required operation.</li>
+<li><strong>Store:</strong> Result is written back to memory or register.</li>
+</ol>
+<blockquote>
+<p><strong>Analogy:</strong>  </p>
+<ul>
+<li>Fetch: Read the next recipe step.  </li>
+<li>Decode: Understand what to do.  </li>
+<li>Execute: Do the work (mix, cook).  </li>
+<li>Store: Put the dish aside and repeat.</li>
+</ul>
+</blockquote>
+<hr>
+<h2>4️⃣ Types of Instructions 🏷️</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data Transfer</td>
+<td><code>MOV</code>, <code>LOAD</code></td>
+<td>Move data between registers and memory</td>
+</tr>
+<tr>
+<td>Arithmetic</td>
+<td><code>ADD</code>, <code>SUB</code></td>
+<td>Perform calculations</td>
+</tr>
+<tr>
+<td>Logical</td>
+<td><code>AND</code>, <code>OR</code>, <code>NOT</code></td>
+<td>Perform logical operations</td>
+</tr>
+<tr>
+<td>Control Transfer</td>
+<td><code>JMP</code>, <code>CALL</code></td>
+<td>Change sequence of execution</td>
+</tr>
+<tr>
+<td>Input/Output</td>
+<td><code>IN</code>, <code>OUT</code></td>
+<td>Handle external data transfer</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🏁 Key Takeaways</h2>
+<ul>
+<li>CPU instructions are structured (format) and use various ways to access data (addressing modes).</li>
+<li>The CPU has specialized components for different tasks; registers play a crucial role in speed.</li>
+<li>All instructions go through a cycle: fetch, decode, execute, and store.</li>
+<li>Different instruction types allow the CPU to control data, perform logic, calculate, and interact with the world.</li>
+</ul>
+<hr>
+<h2>✨ Keep Exploring &amp; Ask Questions!</h2>
+<p>If you have doubts or want deeper examples, feel free to ask!<br>Learning is a journey—mistakes and questions are part of it. 🚀</p>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

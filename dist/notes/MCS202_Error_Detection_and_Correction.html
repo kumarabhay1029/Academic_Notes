@@ -1,0 +1,598 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Error Detection and Correction - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Error Detection and Correction</h1><p class="subject-tag">MCS202</p></div></header><main class="container"><article class="note-content"><h1>🛡️ MCS202: Error Detection &amp; Correction (Parity &amp; Hamming Code)</h1>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#what-is-an-error">What is an Error?</a></li>
+<li><a href="#error-detection">Error Detection</a></li>
+<li><a href="#parity-bits">Parity Bits</a><ul>
+<li><a href="#even-parity-bit">Even Parity Bit</a></li>
+<li><a href="#odd-parity-bit">Odd Parity Bit</a></li>
+</ul>
+</li>
+<li><a href="#hamming-code-error-detection--correction">Hamming Code: Error Detection &amp; Correction</a><ul>
+<li><a href="#hamming-code-for-4-bits-venn-diagram">Hamming Code for 4 Bits (Venn Diagram)</a></li>
+<li><a href="#hamming-code-for-more-than-4-bits">Hamming Code for More than 4 Bits</a></li>
+</ul>
+</li>
+<li><a href="#references--images">References &amp; Images</a></li>
+<li><a href="#quick-revision-table">Quick Revision Table</a></li>
+</ol>
+<hr>
+<h2>What is an Error?</h2>
+<blockquote>
+<p><strong>Error</strong> in data transmission means that the received data is different from the transmitted data due to some unwanted changes (bit flips).</p>
+</blockquote>
+<ul>
+<li><strong>Example:</strong>  <ul>
+<li>Transmitted: <code>101</code> → Received: <code>100</code>  </li>
+<li>Transmitted: <code>5</code>   → Received: <code>4</code></li>
+</ul>
+</li>
+<li><strong>Error</strong> = Change in the original value during transmission.</li>
+</ul>
+<hr>
+<h2>Error Detection</h2>
+<p>Error detection is the process of finding whether an error has occurred during data transmission.</p>
+<ul>
+<li><p><strong>Example:</strong><br>If the rightmost bit in <code>101</code> changes from 1 to 0 (i.e., becomes <code>100</code>), we can detect and possibly correct this error.</p>
+</li>
+<li><p><strong>Analogy:</strong><br>In real life, we use guards for protection. Similarly, in data transmission, we use <strong>parity bits</strong> as guard bits to protect data from errors.</p>
+</li>
+</ul>
+<hr>
+<h2>Parity Bits</h2>
+<p>A <strong>parity bit</strong> is an extra bit added to data to help detect (and sometimes correct) errors during transmission.</p>
+<h3>Types of Parity Bits:</h3>
+<ol>
+<li><strong>Even Parity Bit (EP)</strong></li>
+<li><strong>Odd Parity Bit (OP)</strong></li>
+</ol>
+<p>Both work as guard bits for data.</p>
+<hr>
+<h3>Even Parity Bit</h3>
+<ul>
+<li><p><strong>Steps to Calculate:</strong></p>
+<ol>
+<li>Count the number of 1s in the data.</li>
+<li>If the count is even, parity bit = 0.</li>
+<li>If the count is odd, parity bit = 1 (to make the total even).</li>
+</ol>
+</li>
+<li><p><strong>Examples:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th># of 1s</th>
+<th>Parity Bit</th>
+<th>Parity Data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>101011</td>
+<td>4</td>
+<td>0</td>
+<td>0 101011</td>
+</tr>
+<tr>
+<td>111011</td>
+<td>5</td>
+<td>1</td>
+<td>1 111011</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<hr>
+<h3>Odd Parity Bit</h3>
+<ul>
+<li><p><strong>Steps to Calculate:</strong></p>
+<ol>
+<li>Count the number of 1s in the data.</li>
+<li>If the count is odd, parity bit = 0.</li>
+<li>If the count is even, parity bit = 1 (to make the total odd).</li>
+</ol>
+</li>
+<li><p><strong>Examples:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th># of 1s</th>
+<th>Parity Bit</th>
+<th>Parity Data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>101010</td>
+<td>3</td>
+<td>0</td>
+<td>0 101010</td>
+</tr>
+<tr>
+<td>111010</td>
+<td>4</td>
+<td>1</td>
+<td>1 111010</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<hr>
+<h2>Hamming Code: Error Detection &amp; Correction</h2>
+<p>Hamming code is a method for <strong>detecting and correcting single-bit errors</strong> in binary data, using multiple parity bits placed at specific positions.</p>
+<hr>
+<h3>Hamming Code for 4 Bits (Venn Diagram)</h3>
+<ul>
+<li><p>For a 4-bit data, arrange the bits using Venn diagram (3 circles, each circle for a parity bit).</p>
+</li>
+<li><p>Each parity bit checks a specific combination of data bits.</p>
+</li>
+<li><p><strong>Example:</strong>  </p>
+<ul>
+<li>Source Data: <code>1010</code>  </li>
+<li>Received Data: <code>1011</code>  </li>
+<li>Check which parity bits (circles) are violated to find the error location.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Visualization:</strong></p>
+<p><img src="https://drive.google.com/uc?export=view&id=1G_TcSpjDK015QYrdLQCSxz6FMC1rtEWU" alt="Hamming error bit checking"></p>
+<ul>
+<li>The intersection (highlighted area) shows the error bit.</li>
+<li>After correcting, the data becomes <code>1010</code>.</li>
+</ul>
+<p><strong>Exercise Example:</strong></p>
+<ul>
+<li>Source: <code>0110</code>  </li>
+<li>Received: <code>1110</code>  </li>
+<li>Error detected and corrected to <code>0110</code>.</li>
+</ul>
+<p><img src="https://drive.google.com/uc?export=view&id=1e6NV7vXNfqNarz7fxsuOsFIUhjW_E5_o" alt="Exercise"></p>
+<hr>
+<h3>Hamming Code for More than 4 Bits</h3>
+<h4>Step 1: Find Number of Parity Bits Needed</h4>
+<p>If data length = N, find smallest <code>i</code> such that:<br><code>2^i ≥ N + i + 1</code></p>
+<ul>
+<li>Example: For N = 8,<ul>
+<li>Try i = 4: 2⁴ = 16 ≥ 8 + 4 + 1 = 13 ✔️  </li>
+<li>So, 4 parity bits are needed.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://drive.google.com/uc?export=view&id=1FQzxkbvaWvLkmmGNcc6aH68MY1yYi0e0" alt="Hamming for more than 4 bits"></p>
+<h4>Step 2: Arrangement</h4>
+<ul>
+<li>For source data</li>
+<li>Total length = N + i (data + parity bits)</li>
+<li>Parity bits are placed at positions that are powers of 2 (1, 2, 4, 8, ...)</li>
+</ul>
+<p><strong>Bit positions (example for 8 data bits + 4 parity bits = 12 bits):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Bit Position</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bit Value</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>P4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>P3</td>
+<td>1</td>
+<td>P2</td>
+<td>P1</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>Pn</code> = Parity bit at position n</li>
+</ul>
+<p><strong>Bitmap Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>7</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h4>Step 3: Calculate Parity Bits</h4>
+<ul>
+<li>For each parity bit, take even parity of all bits it covers.</li>
+</ul>
+<p><strong>Example Calculation:</strong></p>
+<ul>
+<li><code>pt1</code> = even parity of positions (3, 5, 7, 9, 11)</li>
+<li><code>pt2</code> = even parity of positions (3, 6, 7, 10, 11)</li>
+<li><code>pt3</code> = even parity of positions (5, 6, 7, 12)</li>
+<li><code>pt4</code> = even parity of positions (9, 10, 11, 12)</li>
+</ul>
+<p><strong>Final Hamming Encoded Data Example:</strong><br><code>101001000110</code></p>
+<p><img src="https://drive.google.com/uc?export=view&id=1VeP_WsEmZbgP61ATrf0zpRTSDrYKEKfy" alt="Hamming correction"></p>
+<h5>Step 4: Received Data Analysis</h5>
+<ul>
+<li>For Received data.</li>
+<li>The received data is analyzed to detect and correct errors using Hamming code. Below is the received data and how parity bits are calculated.</li>
+</ul>
+<hr>
+<p> <strong>Received Data Layout</strong></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bit</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>pt4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>pt3</td>
+<td>1</td>
+<td>pt2</td>
+<td>pt1</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Bitmap Table</strong></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>7</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>Step 5: <strong>Parity Bit Calculations</strong></h4>
+<p>The values of parity bits (pt1, pt2, pt3, pt4) are calculated using <strong>even parity (EP)</strong> for specific bit positions:</p>
+<ol>
+<li><p><strong>pt1</strong>: Covers positions 1, 3, 5, 7, 9, 11  </p>
+<pre><code>pt1 = EP(3rd, 5th, 7th, 9th, 11th)
+    = EP(1, 0, 1, 0, 0)
+    = 0
+</code></pre>
+</li>
+<li><p><strong>pt2</strong>: Covers positions 2, 3, 6, 7, 10, 11  </p>
+<pre><code>pt2 = EP(3rd, 6th, 7th, 10th, 11th)
+    = EP(1, 0, 1, 0, 0)
+    = 0
+</code></pre>
+</li>
+<li><p><strong>pt3</strong>: Covers positions 4, 5, 6, 7, 12  </p>
+<pre><code>pt3 = EP(5th, 6th, 7th, 12th)
+    = EP(0, 0, 1, 1)
+    = 0
+</code></pre>
+</li>
+<li><p><strong>pt4</strong>: Covers positions 8, 9, 10, 11, 12  </p>
+<pre><code>pt4 = EP(9th, 10th, 11th, 12th)
+    = EP(0, 0, 0, 1)
+    = 1
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2><strong>Final Receiver Data</strong></h2>
+<p>The final received data with parity bits is:<br><strong>100011000100</strong></p>
+<h4><strong>Source Data for Comparison</strong></h4>
+<p>The original source data is:<br><strong>101001000110</strong></p>
+<p><img src="https://drive.google.com/uc?export=view&id=1Xuv9vZ8U7zOgtDZqX7XxzW2ufgNO7J-U" alt="Receiver Data"></p>
+<hr>
+<h2><strong>Error Detection(Syndrome Calculation)</strong></h2>
+<h3><strong>Step 1: Comparing Parity Bits</strong></h3>
+<ul>
+<li><strong>Parity Bits of Source Data:</strong> <code>0010</code>  </li>
+<li><strong>Parity Bits of Received Data:</strong> <code>1000</code>  </li>
+<li><strong>Syndrome Word:</strong>  <pre><code>Syndrome = Source Parity XOR Received Parity
+         = 0010 XOR 1000
+         = 1010
+</code></pre>
+</li>
+</ul>
+<h3><strong>Step 2: Error Detection</strong></h3>
+<ul>
+<li>The syndrome word <code>1010</code> (binary) corresponds to position <strong>10</strong> in decimal.  </li>
+<li>This indicates an error at the <strong>10th bit</strong> of the received data.</li>
+</ul>
+<hr>
+<h2><strong>Error Correction</strong></h2>
+<h3><strong>Step 1: Flip the Error Bit</strong></h3>
+<ul>
+<li>Correct the error by flipping the bit at position 10 in the received data:<pre><code>Received Data: 100011000100
+Corrected Data: 101001000110
+</code></pre>
+</li>
+</ul>
+<h3><strong>Step 2: Extract Corrected Data</strong></h3>
+<ul>
+<li><p>The <strong>corrected receiver data</strong> (without parity bits) is:<br><strong>10101001</strong></p>
+<p><strong>Example:</strong></p>
+</li>
+<li><p>Source Data: <code>101001000110</code></p>
+</li>
+<li><p>Received Data: <code>100011000100</code></p>
+</li>
+<li><p>Syndrome: <code>1010</code> (binary) = 10 (decimal) ⟶ Error at position 10</p>
+</li>
+<li><p>Corrected Data: <code>101001000110</code> → Original Data: <code>10101001</code></p>
+</li>
+</ul>
+<hr>
+<h2><strong>Diagram for Reference</strong></h2>
+<p><img src="https://drive.google.com/uc?export=view&id=1E9_wjqnW2taHQIUE2Yqv8cvGZlyKl517" alt="Syndrom"></p>
+<hr>
+<h3><strong>Summary of the Process</strong></h3>
+<ol>
+<li>Arrange received data with parity bits.</li>
+<li>Calculate parity bits using even parity for specific positions.</li>
+<li>Compare source and received parity bits to form the syndrome word.</li>
+<li>Decode the syndrome to locate the error position.</li>
+<li>Correct the error by flipping the bit at the identified position.</li>
+<li>Extract the corrected data.</li>
+</ol>
+<p>The process ensures detection and correction of a <strong>single-bit error</strong> in the received data.](<a href="https://chat.whatsapp.com/LqaemPIHBhHHQLg8qPfeeD">https://chat.whatsapp.com/LqaemPIHBhHHQLg8qPfeeD</a>)</p>
+<hr>
+<h2>References &amp; Images</h2>
+<ul>
+<li><a href="https://drive.google.com/uc?export=view&id=1G_TcSpjDK015QYrdLQCSxz6FMC1rtEWU">Hamming error bit checking</a></li>
+<li><a href="https://drive.google.com/uc?export=view&id=1e6NV7vXNfqNarz7fxsuOsFIUhjW_E5_o">Venn diagram exercise</a></li>
+<li><a href="https://drive.google.com/uc?export=view&id=1FQzxkbvaWvLkmmGNcc6aH68MY1yYi0e0">Hamming for &gt;4 bits</a></li>
+<li><a href="https://drive.google.com/uc?export=view&id=1VeP_WsEmZbgP61ATrf0zpRTSDrYKEKfy">Parity &amp; syndrome illustration</a></li>
+<li><a href="https://drive.google.com/uc?export=view&id=1E9_wjqnW2taHQIUE2Yqv8cvGZlyKl517">Syndrome example</a></li>
+</ul>
+<hr>
+<h2>Quick Revision Table</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning / Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Error</td>
+<td>Change in data during transmission</td>
+</tr>
+<tr>
+<td>Parity Bit</td>
+<td>Extra bit for error detection</td>
+</tr>
+<tr>
+<td>Even Parity</td>
+<td>Makes total number of 1s even</td>
+</tr>
+<tr>
+<td>Odd Parity</td>
+<td>Makes total number of 1s odd</td>
+</tr>
+<tr>
+<td>Hamming Code</td>
+<td>Detects &amp; corrects single-bit errors</td>
+</tr>
+<tr>
+<td>Syndrome</td>
+<td>Output word that locates error position</td>
+</tr>
+<tr>
+<td>Venn Diagram</td>
+<td>Visualizes parity bit coverage (small data)</td>
+</tr>
+</tbody></table>
+<hr>
+<p>✨ <strong>Tip:</strong> For exams, remember:  </p>
+<ul>
+<li>Steps for calculating parity bits  </li>
+<li>How to use syndrome for error correction  </li>
+<li>Powers of 2 for parity bit positions in Hamming code</li>
+</ul>
+<hr>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

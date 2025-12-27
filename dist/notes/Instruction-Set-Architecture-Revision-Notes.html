@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Instruction Set Architecture Revision Notes - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Instruction Set Architecture Revision Notes</h1><p class="subject-tag">INSTRUCTION-SET-ARCHITECTURE-REVISION-NOTES</p></div></header><main class="container"><article class="note-content"><h1>🖥️ Instruction Set Architecture (ISA) — Revision Notes</h1>
+<hr>
+<h2>📚 What is Instruction Set Architecture (ISA)?</h2>
+<ul>
+<li><strong>Definition:</strong><br>ISA is the part of computer architecture that defines the set of instructions a CPU can execute, and how those instructions are formatted and used.</li>
+<li><strong>Role:</strong><br>Acts as a bridge between hardware (CPU) and software (programs), specifying how programs control the processor.</li>
+</ul>
+<h3>🏗️ Key Components of ISA</h3>
+<ul>
+<li><strong>Instruction Set:</strong><br>The list of all operations a processor can perform (e.g., ADD, SUB, LOAD, STORE).</li>
+<li><strong>Instruction Format:</strong><br>The layout or structure of bits in an instruction (opcode, operands, etc.).</li>
+<li><strong>Data Types:</strong><br>Defines the types of data the CPU can handle (integers, floats, characters, etc.).</li>
+<li><strong>Registers:</strong><br>Small, fast storage locations inside the CPU, specified and managed by the ISA.</li>
+<li><strong>Addressing Modes:</strong><br>Ways in which operands (data) can be accessed or specified in instructions.</li>
+</ul>
+<hr>
+<h2>🔑 Why is ISA Important?</h2>
+<ul>
+<li><strong>Compatibility:</strong><br>Software written for a specific ISA will only run on CPUs that implement that ISA.</li>
+<li><strong>Performance:</strong><br>The design of the ISA impacts how efficiently a CPU can execute programs.</li>
+<li><strong>Portability:</strong><br>Programs can be ported across different hardware that shares the same ISA.</li>
+</ul>
+<hr>
+<h2>🏷️ Examples of Popular ISAs</h2>
+<ul>
+<li><strong>x86:</strong> Used in most desktop and laptop computers.</li>
+<li><strong>ARM:</strong> Common in smartphones, tablets, and embedded systems.</li>
+<li><strong>RISC-V:</strong> An open-source, modern ISA used in research and some commercial devices.</li>
+</ul>
+<hr>
+<h2>🧩 Types of Instructions (in an ISA)</h2>
+<ol>
+<li><strong>Data Movement:</strong> Move data between registers, memory, or I/O (e.g., <code>MOV</code>, <code>LOAD</code>, <code>STORE</code>).</li>
+<li><strong>Arithmetic/Logic:</strong> Perform calculations or logical operations (e.g., <code>ADD</code>, <code>SUB</code>, <code>AND</code>).</li>
+<li><strong>Control:</strong> Change the sequence of execution (e.g., <code>JUMP</code>, <code>CALL</code>, <code>RETURN</code>).</li>
+</ol>
+<hr>
+<h2>📝 Quick Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Example (x86)</th>
+<th>Example (ARM)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data Movement</td>
+<td>MOV EAX, EBX</td>
+<td>LDR R0, [R1]</td>
+</tr>
+<tr>
+<td>Arithmetic/Logic</td>
+<td>ADD EAX, 2</td>
+<td>ADD R0, R1, #2</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>JMP 0x200</td>
+<td>B 0x200</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>💡 Key Takeaways</h2>
+<ul>
+<li>ISA defines <strong>what</strong> a CPU can do and <strong>how</strong> it does it.</li>
+<li>It is crucial for software compatibility and system performance.</li>
+<li>Knowing the ISA helps understand how computers execute programs at the lowest level.</li>
+</ul>
+<hr>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

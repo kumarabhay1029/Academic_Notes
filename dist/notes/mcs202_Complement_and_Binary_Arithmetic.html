@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Complement and Binary Arithmetic - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Complement and Binary Arithmetic</h1><p class="subject-tag">MCS202</p></div></header><main class="container"><article class="note-content"><h1>Complement and Binary Arithmetic Notes</h1>
+<h2>Objective</h2>
+<p>These notes are designed to provide a comprehensive understanding of complements in different number systems, binary arithmetic operations, and representations of numbers in signed magnitude and complement forms. It also includes exercises for better conceptual clarity.</p>
+<hr>
+<h2>Table of Contents</h2>
+<ol>
+<li><strong>Understanding Complement in Number Systems</strong><ul>
+<li>Definition of Complement</li>
+<li>Types of Complements</li>
+</ul>
+</li>
+<li><strong>Decimal Number System: 9&#39;s and 10&#39;s Complements</strong><ul>
+<li>Steps to Calculate 9&#39;s and 10&#39;s Complements</li>
+<li>Example and Exercise</li>
+</ul>
+</li>
+<li><strong>Binary System: 1&#39;s and 2&#39;s Complements</strong><ul>
+<li>Steps to Calculate 1&#39;s and 2&#39;s Complements</li>
+<li>Shortcut for Finding 2&#39;s Complement</li>
+<li>Example and Exercise</li>
+</ul>
+</li>
+<li><strong>Arithmetic Operations on Binary Numbers</strong><ul>
+<li>Addition and Subtraction of Binary Numbers</li>
+<li>Example and Exercise</li>
+</ul>
+</li>
+<li><strong>Fixed Point and Floating Point Numbers</strong><ul>
+<li>Floating Point Numbers</li>
+<li>Fixed Point Numbers</li>
+</ul>
+</li>
+<li><strong>Signed Magnitude Representation</strong><ul>
+<li>Representation Rules</li>
+<li>Examples with 8-bit Registers</li>
+<li>Addition and Subtraction using Signed Magnitude</li>
+</ul>
+</li>
+<li><strong>Signed 1&#39;s Complement Representation</strong><ul>
+<li>Representation Rules</li>
+<li>Examples and Exercises</li>
+</ul>
+</li>
+<li><strong>Signed 2&#39;s Complement Representation</strong><ul>
+<li>Representation Rules</li>
+<li>Examples and Exercises</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>1. Understanding Complement in Number Systems</h2>
+<h3>Definition of Complement</h3>
+<p>The complement of a set or value refers to the exclusion of elements or digits from the domain or range. For example:</p>
+<ul>
+<li>Let ( A = {x : x \text{ belongs to } W} ), where ( W ) is the set of whole numbers.</li>
+<li>The complement ( A&#39; ) includes all values except whole numbers, represented as ( A&#39; = R - W = Z ), where ( Z ) is the set of negative integers.</li>
+</ul>
+<h3>Types of Complements</h3>
+<ol>
+<li>( (r-1)&#39;s ) Complement</li>
+<li>( r&#39;s ) Complement</li>
+</ol>
+<p>For base ( r ):</p>
+<ul>
+<li>Base 2: 1&#39;s and 2&#39;s Complements</li>
+<li>Base 10: 9&#39;s and 10&#39;s Complements</li>
+<li>Base 8: 7&#39;s and 8&#39;s Complements</li>
+<li>Base 16: 15&#39;s and 16&#39;s Complements</li>
+</ul>
+<hr>
+<h2>2. Decimal Number System: 9&#39;s and 10&#39;s Complements</h2>
+<h3>Steps to Calculate</h3>
+<ol>
+<li>Identify the total number of digits in the given number.</li>
+<li>Subtract the given number from the largest number with the same number of digits (e.g., 9999 for 4 digits).</li>
+<li>Add 1 to the result to find the ( 10&#39;s ) Complement.</li>
+</ol>
+<h3>Example</h3>
+<p>Find the ( 9&#39;s ) and ( 10&#39;s ) Complement of ( 7852 ):</p>
+<ol>
+<li>Largest 4-digit number: ( 9999 )</li>
+<li>( 9999 - 7852 = 2147 ) (9&#39;s Complement)</li>
+<li>( 2147 + 1 = 2148 ) (10&#39;s Complement)</li>
+</ol>
+<hr>
+<h2>3. Binary System: 1&#39;s and 2&#39;s Complements</h2>
+<h3>Steps to Calculate</h3>
+<ol>
+<li>Find the largest binary number with the same number of digits.</li>
+<li>Subtract the given binary number from this largest number to find the ( 1&#39;s ) Complement.</li>
+<li>Add 1 to the ( 1&#39;s ) Complement to find the ( 2&#39;s ) Complement.</li>
+</ol>
+<h3>Shortcut for Finding 2&#39;s Complement</h3>
+<ul>
+<li>Start from the rightmost digit and move left until you find the first ( 1 ).</li>
+<li>Copy this ( 1 ) and invert all bits to the left of it.</li>
+</ul>
+<h3>Example</h3>
+<p>Find the ( 1&#39;s ) and ( 2&#39;s ) Complement of ( 1011001 ):</p>
+<ol>
+<li>Largest binary number: ( 1111111 )</li>
+<li>( 1111111 - 1011001 = 0100110 ) (1&#39;s Complement)</li>
+<li>( 0100110 + 1 = 0100111 ) (2&#39;s Complement)</li>
+</ol>
+<hr>
+<h2>4. Arithmetic Operations on Binary Numbers</h2>
+<h3>Binary Addition Example</h3>
+<pre><code>  101010
++ 110011
+---------
+  011101
+</code></pre>
+<h3>Binary Subtraction Example</h3>
+<pre><code>  1001001
+- 0111111
+---------
+  0001010
+</code></pre>
+<hr>
+<h2>5. Fixed Point and Floating Point Numbers</h2>
+<h3>Floating Point Numbers</h3>
+<ul>
+<li>Example: ( 0.00123 \times 10^{-10} ) = ( 0.123 \times 10^{-12} )</li>
+<li><strong>Exponent</strong>: Power of 10 (( -12 ))</li>
+<li><strong>Mantissa</strong>: ( 0.123 )</li>
+</ul>
+<h3>Fixed Point Numbers</h3>
+<ul>
+<li>Represented using:<ol>
+<li>Signed Magnitude</li>
+<li>Signed 1&#39;s Complement</li>
+<li>Signed 2&#39;s Complement</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2>6. Signed Magnitude Representation</h2>
+<h3>Rules</h3>
+<ul>
+<li>Use the Most Significant Bit (MSB) for the sign: ( 0 ) for positive, ( 1 ) for negative.</li>
+<li>Remaining bits represent the magnitude.</li>
+</ul>
+<h3>Example (8-bit Register)</h3>
+<ul>
+<li>( +5 ): ( 00000101 )</li>
+<li>( -5 ): ( 10000101 )</li>
+</ul>
+<h3>Addition/Subtraction Rules</h3>
+<ol>
+<li>Same sign: Add magnitudes; keep the sign.</li>
+<li>Different signs: Subtract magnitudes; keep the sign of the larger number.</li>
+</ol>
+<hr>
+<h2>7. Signed 1&#39;s Complement Representation</h2>
+<h3>Rules</h3>
+<ul>
+<li>Positive numbers remain unchanged.</li>
+<li>Negative numbers are represented using their ( 1&#39;s ) Complement.</li>
+</ul>
+<h3>Example (8-bit Register)</h3>
+<ul>
+<li>( +5 ): ( 00000101 )</li>
+<li>( -5 ): ( 11111010 ) (1&#39;s Complement)</li>
+</ul>
+<hr>
+<h2>8. Signed 2&#39;s Complement Representation</h2>
+<h3>Rules</h3>
+<ul>
+<li>Positive numbers remain unchanged.</li>
+<li>Negative numbers are represented using their ( 2&#39;s ) Complement.</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>( +5 ): ( 00000101 )</li>
+<li>( -5 ): ( 11111011 ) (2&#39;s Complement)</li>
+</ul>
+<h3>Exercise</h3>
+<p>Perform ( -25 + 10 ):</p>
+<ol>
+<li>( -25 ) in ( 2&#39;s ) Complement: ( 11100111 )</li>
+<li>( +10 ): ( 00001010 )</li>
+<li>Result: ( 11110110 ) (( -15 ) in Decimal)</li>
+</ol>
+<hr>
+<h2>Exercises</h2>
+<h3>Decimal System</h3>
+<ol>
+<li>Find the ( 9&#39;s ) and ( 10&#39;s ) Complement of ( 4321 ).</li>
+</ol>
+<h3>Binary System</h3>
+<ol>
+<li>Find the ( 1&#39;s ) and ( 2&#39;s ) Complement of ( 1101010 ).</li>
+</ol>
+<h3>Arithmetic Operations</h3>
+<ol>
+<li>Perform ( 101110 + 011011 ).</li>
+<li>Perform ( 1001001 - 0111111 ).</li>
+</ol>
+<h3>Signed Representations</h3>
+<ol>
+<li>Represent ( +7 ) and ( -7 ) in Signed Magnitude, 1&#39;s Complement, and 2&#39;s Complement using an 8-bit register.</li>
+</ol>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

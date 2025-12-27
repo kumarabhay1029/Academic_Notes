@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Addressing Modes Revision Notes - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Addressing Modes Revision Notes</h1><p class="subject-tag">ADDRESSING-MODES-REVISION-NOTES</p></div></header><main class="container"><article class="note-content"><h1>🧭 Addressing Modes — Revision Notes</h1>
+<hr>
+<h2>🔎 What Are Addressing Modes?</h2>
+<ul>
+<li><strong>Definition:</strong><br>Addressing modes are techniques used in computer architecture to specify how and where the operands (data) for instructions are accessed or located.</li>
+<li><strong>Purpose:</strong><br>They provide flexibility and efficiency in programming by offering multiple ways to access data.</li>
+</ul>
+<hr>
+<h2>🏷️ Common Types of Addressing Modes</h2>
+<h3>1️⃣ Immediate Addressing</h3>
+<ul>
+<li><strong>Description:</strong> The operand value is given directly in the instruction.</li>
+<li><strong>Example:</strong> <code>MOV R1, #5</code> (Moves the value 5 into register R1)</li>
+<li><strong>Analogy:</strong> Like a recipe that tells you to “add 2 teaspoons of sugar”—the value is right there.</li>
+</ul>
+<hr>
+<h3>2️⃣ Direct Addressing</h3>
+<ul>
+<li><strong>Description:</strong> The instruction specifies the exact memory address of the operand.</li>
+<li><strong>Example:</strong> <code>LOAD R1, 1000</code> (Loads the value from memory address 1000 into R1)</li>
+<li><strong>Analogy:</strong> “Go directly to house number 1000 to pick up the package.”</li>
+</ul>
+<hr>
+<h3>3️⃣ Indirect Addressing</h3>
+<ul>
+<li><strong>Description:</strong> The address of the operand is stored in a register or memory location.</li>
+<li><strong>Example:</strong> <code>LOAD R1, (R2)</code> (R2 contains the address; load value from where R2 points)</li>
+<li><strong>Analogy:</strong> “Ask your friend (R2) for the address, then go there.”</li>
+</ul>
+<hr>
+<h3>4️⃣ Register Addressing</h3>
+<ul>
+<li><strong>Description:</strong> The operand is located in a CPU register.</li>
+<li><strong>Example:</strong> <code>ADD R1, R2, R3</code> (Adds values in R2 and R3, stores in R1)</li>
+<li><strong>Analogy:</strong> “Use the ingredients already on your kitchen counter.”</li>
+</ul>
+<hr>
+<h3>5️⃣ Indexed Addressing</h3>
+<ul>
+<li><strong>Description:</strong> Combines a base address and an offset (useful for arrays).</li>
+<li><strong>Example:</strong> <code>LOAD R1, 1000(R2)</code> (Final address = 1000 + contents of R2)</li>
+<li><strong>Analogy:</strong> “Start at house 1000, then walk R2 houses down the street.”</li>
+</ul>
+<hr>
+<h2>📝 Quick Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Example</th>
+<th>Description</th>
+<th>Analogy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Immediate</td>
+<td>MOV R1, #5</td>
+<td>Operand is in instruction</td>
+<td>Value is right there</td>
+</tr>
+<tr>
+<td>Direct</td>
+<td>LOAD R1, 1000</td>
+<td>Address given directly</td>
+<td>Go to specific house</td>
+</tr>
+<tr>
+<td>Indirect</td>
+<td>LOAD R1, (R2)</td>
+<td>Address stored in register/memory</td>
+<td>Ask friend for address</td>
+</tr>
+<tr>
+<td>Register</td>
+<td>ADD R1, R2, R3</td>
+<td>Operand is in register</td>
+<td>Use what’s on your counter</td>
+</tr>
+<tr>
+<td>Indexed</td>
+<td>LOAD R1, 1000(R2)</td>
+<td>Base + offset for final address</td>
+<td>Start at place, move steps ahead</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>💡 Why Are Addressing Modes Important?</h2>
+<ul>
+<li><strong>Flexibility:</strong> Allows different ways to access and manipulate data.</li>
+<li><strong>Efficiency:</strong> Optimizes program size and speed.</li>
+<li><strong>Power:</strong> Supports advanced programming constructs (like loops, arrays, pointers).</li>
+</ul>
+<hr>
+<h2>🎯 Key Takeaways</h2>
+<ul>
+<li>Addressing modes define how instructions access operands.</li>
+<li>They make programming more flexible and powerful.</li>
+<li>Understanding them is crucial for mastering computer organization and assembly language.</li>
+</ul>
+<hr>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

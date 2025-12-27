@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>mcs201 Decision Control Statements - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>mcs201 Decision Control Statements</h1><p class="subject-tag">MCS201-DECISION-CONTROL-STATEMENTS</p></div></header><main class="container"><article class="note-content"><h3>UNIT - 3: Decision and Loop Control Statements</h3>
+<hr>
+<h2>✅ Decision Control Statements</h2>
+<h3>1. <code>if-else</code> Statement</h3>
+<p><strong>Explanation:</strong>
+Conditional statements allow the program to make decisions and execute code blocks based on given conditions.</p>
+<p><strong>Ternary Form:</strong></p>
+<pre><code class="language-c">x = (y &lt; 20) ? 9 : 10;
+</code></pre>
+<p>This means: If <code>y</code> is less than 20, assign <code>9</code> to <code>x</code>; otherwise, assign <code>10</code>.</p>
+<p><strong>Standard Syntax:</strong></p>
+<pre><code class="language-c">if (condition) {
+    // code block if condition is true
+} else {
+    // code block if condition is false
+}
+</code></pre>
+<p><strong>Example - Check Even or Odd:</strong></p>
+<pre><code class="language-c">if (a % 2 == 0) {
+    printf(&quot;Even&quot;);
+} else {
+    printf(&quot;Odd&quot;);
+}
+</code></pre>
+<hr>
+<h3>2. <code>switch</code> Statement</h3>
+<p><strong>Used when we have multiple conditions based on a single variable.</strong></p>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-c">switch (a) {
+    case 1:
+        // statement;
+        break;
+    case 2:
+        // statement;
+        break;
+    // ... other cases ...
+    default:
+        // statement if no case matches;
+        break;
+}
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">int choice = 2;
+switch (choice) {
+    case 1:
+        printf(&quot;One&quot;);
+        break;
+    case 2:
+        printf(&quot;Two&quot;);
+        break;
+    case 3:
+        printf(&quot;Three&quot;);
+        break;
+    default:
+        printf(&quot;Wrong choice&quot;);
+        break;
+}
+</code></pre>
+<hr>
+<h2>🔁 Loop Control Statements</h2>
+<p><strong>Definition:</strong>
+A loop allows a set of instructions to be executed repeatedly until a specific condition is met.</p>
+<h3>1. <code>while</code> Loop</h3>
+<pre><code class="language-c">while (condition) {
+    // code block
+    // increment or decrement
+}
+</code></pre>
+<h3>2. <code>do-while</code> Loop</h3>
+<pre><code class="language-c">do {
+    // code block
+    // increment or decrement
+} while (condition);
+</code></pre>
+<h3>3. <code>for</code> Loop</h3>
+<pre><code class="language-c">for (initialization; condition; increment/decrement) {
+    // code block
+}
+</code></pre>
+<hr>
+<h2>🧮 Print Numbers 1 to 10</h2>
+<h3>Using <code>while</code> loop:</h3>
+<pre><code class="language-c">int a = 1;
+while (a &lt;= 10) {
+    printf(&quot;%d &quot;, a);
+    a++;
+}
+</code></pre>
+<h3>Using <code>do-while</code> loop:</h3>
+<pre><code class="language-c">int a = 1;
+do {
+    printf(&quot;%d &quot;, a);
+    a++;
+} while (a &lt;= 10);
+</code></pre>
+<h3>Using <code>for</code> loop:</h3>
+<pre><code class="language-c">for (int a = 1; a &lt;= 10; a++) {
+    printf(&quot;%d &quot;, a);
+}
+</code></pre>
+<hr>
+<h2>🧩 Nested <code>if</code> Statements</h2>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-c">if (condition1) {
+    if (condition2) {
+        // statement
+    } else {
+        // else block of inner if
+    }
+} else {
+    // else block of outer if
+}
+</code></pre>
+<p><strong>Example - Student B.Tech Eligibility Check:</strong></p>
+<pre><code class="language-c">int q;  // qualification (class passed)
+float m;  // marks
+
+if (q &gt;= 12 &amp;&amp; m &gt;= 75) {
+    printf(&quot;WELCOME&quot;);
+} else {
+    printf(&quot;Unqualified!&quot;);
+}
+</code></pre>
+<p><strong>Detailed Feedback:</strong></p>
+<pre><code class="language-c">int q;
+float m;
+
+if (q &gt;= 12) {
+    if (m &gt;= 75) {
+        printf(&quot;You are qualified.&quot;);
+    } else {
+        printf(&quot;Your marks are too low.&quot;);
+    }
+} else {
+    printf(&quot;You are underqualified.&quot;);
+}
+</code></pre>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>

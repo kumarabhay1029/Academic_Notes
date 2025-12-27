@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Voting and Loop Programs - Notes Hub</title><link rel="stylesheet" href="../note-style.css"/></head><body><header><div class="container"><a class="back-link" href="../index.html">← Back to Notes</a><h1>Voting and Loop Programs</h1><p class="subject-tag">MCS205</p></div></header><main class="container"><article class="note-content"><h1>Voting Eligibility and Loop Programs in C/C++</h1>
+<p>This document includes various C/C++ programs for checking eligibility and working with loops. These programs are written in a structured format for better understanding and readability.</p>
+<hr>
+<h2>1. Check Voting Eligibility in India</h2>
+<h3>Requirements for Voting:</h3>
+<ol>
+<li>Nationality: Indian</li>
+<li>Age: &gt;= 18</li>
+</ol>
+<h3>Program: Simple If-Else</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    char nat;  
+    int age; 
+
+    clrscr();
+    printf(&quot;Enter your nationality:\n i - for Indian \n o - for Other\n&quot;);
+    scanf(&quot;%c&quot;, &amp;nat);
+
+    printf(&quot;Enter your age: &quot;);
+    scanf(&quot;%d&quot;, &amp;age);
+
+    if (nat == &#39;i&#39; &amp;&amp; age &gt;= 18) {
+        printf(&quot;Welcome to the Indian election system!&quot;);
+    } else {
+        printf(&quot;You are not eligible!&quot;);
+    }
+
+    getch();
+}
+</code></pre>
+<h3>Program: Nested If-Else</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    char nat;  
+    int age; 
+
+    clrscr();
+    printf(&quot;Enter your nationality:\n i - for Indian \n o - for Other\n&quot;);
+    scanf(&quot;%c&quot;, &amp;nat);
+
+    printf(&quot;Enter your age: &quot;);
+    scanf(&quot;%d&quot;, &amp;age);
+
+    if (nat == &#39;i&#39;) {
+        if (age &gt;= 18) {
+            printf(&quot;Welcome to the Indian election system!&quot;);
+        } else {
+            printf(&quot;You are under age&quot;);
+        }
+    } else {
+        printf(&quot;You are not eligible!&quot;);
+    }
+
+    getch();
+}
+</code></pre>
+<hr>
+<h2>2. Check Election Eligibility in India</h2>
+<h3>Requirements for Election:</h3>
+<ol>
+<li>Age: &gt;= 25</li>
+<li>Nationality: Indian</li>
+<li>Qualification: Graduation</li>
+</ol>
+<h3>Program</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int age;
+    char nat, grad;
+
+    clrscr();
+
+    printf(&quot;Enter your age: &quot;);
+    scanf(&quot;%d&quot;, &amp;age);
+
+    printf(&quot;Enter your nationality:\n i - for Indian\n o - for Other\n&quot;);
+    scanf(&quot; %c&quot;, &amp;nat);
+
+    printf(&quot;Enter your qualification:\n g - for Graduation\n p - for 12 Pass\n&quot;);
+    scanf(&quot; %c&quot;, &amp;grad);
+
+    if (age &gt;= 25 &amp;&amp; nat == &#39;i&#39; &amp;&amp; grad == &#39;g&#39;) {
+        printf(&quot;Welcome to the Indian election system.\nYou are eligible for election.\n&quot;);
+    } else {
+        printf(&quot;Sorry, you are not eligible. Please try when you meet the election criteria!\n&quot;);
+    }
+
+    getch();
+}
+</code></pre>
+<hr>
+<h2>3. Print Numbers</h2>
+<h3>Program: Print 1 to 10 Using While Loop</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a = 1;
+
+    while (a &lt;= 10) {
+        printf(&quot;%d\n&quot;, a);
+        a++;
+    }
+
+    getch();
+}
+</code></pre>
+<h3>Program: Print 1 to 10 Using For Loop</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a;
+
+    for (a = 1; a &lt;= 10; a++) {
+        printf(&quot;%d\n&quot;, a);
+    }
+
+    getch();
+}
+</code></pre>
+<h3>Program: Print 1 to 10 Using Do-While Loop</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a = 1;
+
+    do {
+        printf(&quot;%d\n&quot;, a);
+        a++;
+    } while (a &lt;= 10);
+
+    getch();
+}
+</code></pre>
+<h3>Program: Print 1 to N Using While Loop</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a = 1, n;
+
+    printf(&quot;Enter value of n: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    while (a &lt;= n) {
+        printf(&quot;%d\t&quot;, a);
+        a++;
+    }
+
+    getch();
+}
+</code></pre>
+<h3>Program: Print 1 to N Using For Loop</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a, n;
+
+    printf(&quot;Enter value of n: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (a = 1; a &lt;= n; a++) {
+        printf(&quot;%d\t&quot;, a);
+    }
+
+    getch();
+}
+</code></pre>
+<h3>Program: Print 1 to N Using Do-While Loop</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int a = 1, n;
+
+    printf(&quot;Enter value of n: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    do {
+        printf(&quot;%d\t&quot;, a);
+        a++;
+    } while (a &lt;= n);
+
+    getch();
+}
+</code></pre>
+<hr>
+<h2>4. Print Even Numbers from 1 to N</h2>
+<h3>Program</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void main() {
+    int i = 1, n;
+
+    printf(&quot;Enter a number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    while (i &lt;= n) {
+        if (i % 2 == 0) {
+            printf(&quot;%d\t&quot;, i);
+        }
+        i++;
+    }
+}
+</code></pre>
+<hr>
+<h2>5. Print Sum of Numbers from 1 to N</h2>
+<h3>Program</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main() {
+    int i = 1, n, sum = 0;
+
+    clrscr();
+
+    printf(&quot;Enter your number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    while (i &lt;= n) {
+        sum += i;
+        i++;
+    }
+
+    printf(&quot;Sum of numbers from 1 to %d is: %d\n&quot;, n, sum);
+
+    getch();
+}
+</code></pre>
+<hr>
+<h2>6. Print Sum of Even Numbers from 1 to N</h2>
+<h3>Program</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void main() {
+    int i = 2, n, sum = 0;
+
+    printf(&quot;Enter your number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    while (i &lt;= n) {
+        sum += i;
+        printf(&quot;%d\t&quot;, i);
+        i += 2;
+    }
+
+    printf(&quot;\nSum of the even numbers from 1 to %d is: %d\n&quot;, n, sum);
+}
+</code></pre>
+</article></main><footer><p>&copy; 2025 Student Initiative Group Notes Hub</p></footer></body></html>
